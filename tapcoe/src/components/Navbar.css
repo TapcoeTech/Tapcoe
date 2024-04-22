@@ -1,0 +1,13 @@
+.menu-tab {
+    position: absolute;
+    z-index: 10; /* Ensure menu tab appears on top */
+  }
+  
+  .dashboard-content {
+    position: relative;
+    z-index: -1; /* Ensure dashboard content appears behind */
+  }
+  
+
+
+  
