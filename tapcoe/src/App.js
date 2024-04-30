@@ -1,14 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
-import Navbar from './components/Navbar';
-import Swipper from './components/Swipper';
+import Home from './pages/Home';
+
+
 
 
 function App() {
   return (
-    <div>
-      <Navbar/>
-      <Swipper/>
+    <div className='bg-black-500'>
+     
+      <Home/>
+   
     </div>
   );
 }
