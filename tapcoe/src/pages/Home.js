@@ -1,10 +1,11 @@
 
+import { useState } from "react"
 import Navbar from "../components/Navbar"
 import Swipper from "../components/Swipper"
 import Timer4 from "../components/Timer4"
 
 const Home = () => {
-
+const [isMenu,setMenu]=useState(false);
     const events = [
         {
           startTime: "2024-06-10T02:30:00",
@@ -32,20 +33,25 @@ const Home = () => {
           eventAddress:"Chennai, santhom high road"
         }
       ];
-      
+      const handleMenuState=()=>{
+setMenu(!isMenu);
+
+      }
+      console.log(isMenu,"qqqqqqqqqqqqqq");
     return (
  <div>
            <div className='header'>
-            <Navbar />
-            <Swipper />
+            <Navbar  handleMenuState={handleMenuState}/>
+<div className={`${isMenu ? " opacity-25" :""}`}>
+<Swipper />
             <div className="flex  flex-row justify-between items-center gap-8">
   <div className="w-full w-[1/2] ml-4 md:ml-0 md:mr-2">
     <img src="pic.png" className="w-full" alt="placeholder" />
   </div>
   <div className="flex flex-col items-center w-full md:w-[50%] justify-center md:mr-4">
     <div className="flex flex-col gap-4 items-center text-center">
-      <span className="font-bold text-4xl">Experience Tapcoe</span>
-      <p className="w-full w-[1/2] text-md md:text-xl justify-center">
+      <span className="font-bold md:text-4xl text-lg">Experience Tapcoe</span>
+      <p className="w-full w-[1/2] md:text-2xl text-lg justify-center">
         Are you a brand or an organization that wants to boost engagement in the
         most creative way? Engage your users through our events in different categories.
         Easily create interesting contests and events that would help your brand reach the masses
@@ -53,6 +59,7 @@ const Home = () => {
       </p>
     </div>
   </div>
+</div>
 </div>
 
         </div>

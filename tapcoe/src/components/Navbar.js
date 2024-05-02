@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './Navbar.css';
 
-function Navbar() {
+function Navbar({handleMenuState}) {
 
     const [isMenu, setIsMenu] = useState(false);
     const [active, setActive] = useState('')
@@ -50,7 +50,7 @@ function Navbar() {
                 <div className="">
                     <button
                         className="menu-bar"
-                        onClick={() => setIsMenu(true)}
+                        onClick={() => {setIsMenu(true) ;handleMenuState()}}
                     >
                         <div className="ml-[200px] -mt-[30px] text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -66,7 +66,7 @@ function Navbar() {
                     <div>
                         <img src="https://tapcoe.com/source/assets/img/taplg.png" alt="loading..." />
                     </div>
-                    <div onClick={() => setIsMenu(false)}>
+                    <div onClick={() => {setIsMenu(false);handleMenuState()}}>
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
