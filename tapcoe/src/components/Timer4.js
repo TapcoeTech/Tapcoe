@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import "./Timer4.css"
-const Timer4 = ({startTime,eventName}) => {
+const Timer4 = ({startTime,eventName,eventAddress}) => {
     const [countDownTime, setCountDownTime] = useState({
         days: 0,
         hours: 0,
@@ -54,13 +54,13 @@ const Timer4 = ({startTime,eventName}) => {
         }
       }, [startTime]);
   return (
-<div className="w-full sm:w-64 bg-white overflow-hidden shadow-lg  hover:translate-x-3.5 ">
-    <div className="flex flex-row  items-center justify-center gap-2 ">
-        <div className="w-[40%]">
+<div className="  items-center justify-center sm:w-64 bg-white overflow-hidden shadow-lg  hover:translate-x-3.5 " style={{width:"350px"}}>
+    <div className="flex flex-col  items-center justify-center gap-2 ">
+        <div className="" style={{width:"150px"}}>
 <img src="event.png"/>
         </div>
-        <div className="w-[60%]">
-            <p className="text-black-500 px-2 py-1 rounded-md text-xl font-semibold">The Friends</p>
+        <div className="w-[100%]  flex items-center justify-center">
+            <p className="text-black-500  py-1 rounded-md text-xl font-semibold">{eventName}</p>
             </div>
     </div>
   <div className="p-2">
@@ -138,7 +138,7 @@ const Timer4 = ({startTime,eventName}) => {
         </div>
       </div>
     </div>
-
+<div className="flex justify-center items-center text-center px-2 py-2"><span className="text-sm font-normal"  style={{color:"#004F4A"}}>{eventAddress}</span></div>
     {/* Buttons */}
     <div className="flex justify-center mt-1 space-x-1">
       <button className="text-black-500 px-2 py-1 rounded-md text-md font-semibold">Winners</button>
