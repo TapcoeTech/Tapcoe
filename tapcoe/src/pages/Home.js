@@ -3,41 +3,40 @@ import { useState } from "react"
 import Navbar from "../components/Navbar"
 import Swipper from "../components/Swipper"
 import Timer4 from "../components/Timer4"
+import '../App.css'
 
 const Home = () => {
     const [isMenu, setMenu] = useState(false);
     const events = [
         {
             startTime: "2024-06-10T02:30:00",
-            eventName: "Event 1",
-            eventAddress: "Kankarbgh,patna"
+            eventName: "The Friends",
+            eventAddress: "Kankarbgh,patna",
+            image: './images/event.png',
+            iconImg: './images/iconImg.png',
         },
         {
             startTime: "2024-06-11T08:00:00",
-            eventName: "Event 2",
-            eventAddress: "Delhi,karolBagh"
+            eventName: "Mr. & Miss Flex",
+            eventAddress: "Delhi,karolBagh",
+            image: './images/event.png',
+            iconImg: './images/iconImg.png',
+
+
         },
         {
             startTime: "2024-06-12T14:45:00",
-            eventName: "Event 3",
-            eventAddress: "Gurgaon, sector 47"
+            eventName: "Chacha Contest",
+            eventAddress: "Gurgaon, sector 47",
+            image: './images/event.png',
+            iconImg: './images/iconImg.png',
         },
-        {
-            startTime: "2024-06-13T18:20:00",
-            eventName: "Event 4",
-            eventAddress: "Chennai, santhom high road"
-        },
-        {
-            startTime: "2024-06-14T21:10:00",
-            eventName: "Event 5",
-            eventAddress: "Chennai, santhom high road"
-        }
     ];
     const handleMenuState = () => {
         setMenu(!isMenu);
 
     }
-   
+
     return (
         <div>
             <div className='header'>
@@ -74,9 +73,9 @@ const Home = () => {
                         <p className="md:w-[600px] md:grid flex justify-center">
                             Are you a brand or an organization that wants to boost the
                             engagement in the most creative way. Engage your users
-                            through our events in different category. Easily create 
-                            interesting contest and events that would help your brand 
-                            to reach the masses and to create zeal and enthusiasm 
+                            through our events in different category. Easily create
+                            interesting contest and events that would help your brand
+                            to reach the masses and to create zeal and enthusiasm
                             amongst them.
                         </p>
 
@@ -87,7 +86,7 @@ const Home = () => {
                 </div>
 
             </div>
-            <div className="flex flex-wrap justify-center mt-4">
+            {/* <div className="flex flex-wrap justify-center mt-4">
                 {events?.map((value, index) => {
                     return (
                         <div className="flex mx-2 mb-2 " key={index}>
@@ -95,8 +94,101 @@ const Home = () => {
                         </div>
                     );
                 })}
+            </div> */}
+
+
+            {/* Events */}
+
+            <div className="">
+                <h1 className="font-semibold text-[30px] mt-6 md:grid flex justify-center">Events</h1>
+
+                <div className="flex gap-4 flex-wrap justify-center">
+                    {events?.map((value, index) => (
+                        <div className="w-[350px] eventCard" key={index} >
+                            <div className="overflow-hidden">
+                                <img className="eventImage grow object-cover -z-10" src={value?.image} />
+                            </div>
+                            <div className="bg-white rounded-md shadow-lg p-4">
+                                <div className=" flex gap-4 justify-between items-center">
+
+                                    <div className="w-[80px]">
+                                        <img src={value?.iconImg} />
+                                    </div>
+                                    <div className="font-semibold text-[24px] text-[#004F4A]">{value?.eventName} </div>
+                                </div>
+
+                                <div className="flex gap-4 items-center justify-center mt-4">
+                                    <div>
+                                        <div className="flex gap-1">
+                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
+                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
+                                        </div>
+                                        <div className="text-[12px] ml-3 mt-1">Days</div>
+                                    </div>
+
+                                    <div>
+                                        <div className="flex gap-1">
+                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
+                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
+                                        </div>
+                                        <div className="text-[12px] ml-3 mt-1">Hours</div>
+                                    </div>
+
+                                    <div>
+                                        <div className="flex gap-1">
+                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
+                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
+                                        </div>
+                                        <div className="text-[12px] ml-3 mt-1">Minute</div>
+                                    </div>
+
+                                    <div>
+                                        <div className="flex gap-1">
+                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
+                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
+                                        </div>
+                                        <div className="text-[12px] ml-3 mt-1">Second</div>
+                                    </div>
+
+                                </div>
+
+                                <div className="text-[#60918D] mt-3 flex justify-center ">{value?.eventAddress} </div>
+                                <div className=" mt-3 flex justify-center gap-4 items-center">
+                                    <div>Winners</div>
+                                    <div className="bg-yellow-400 rounded-lg py-2 px-3">Open Event</div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
             </div>
-            
+
+
+            {/* Story  */}
+
+            <div className="mt-12">
+                <h1 className="font-semibold text-[30px] mt-6 md:grid flex justify-center">Story So Far</h1>
+                <div className="mt-5">
+                    <img src="./images/rectangle.png" />
+                </div>
+
+                <div className="mt-10">
+                    <img src="./images/howWork.png" />
+                </div>
+
+
+                <div className="bg-[#F7F7F7] p-4 px-[200px] mt-4">
+                    <h3 className="font-semibold text-[24px]">Rewards</h3>
+                    <p className="mt-4">
+                        There is always a reward for the winners of the competitions hosted on tapcoe, so get exciting rewards and <br/>enjoy the event with all the fun elements and enthusiasm.
+                    </p>
+
+                </div>
+
+            </div>
         </div>
     )
 }
