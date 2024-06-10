@@ -170,25 +170,66 @@ const Home = () => {
             {/* Story  */}
 
             <div className="mt-12">
-                <h1 className="font-semibold text-[30px] mt-6 md:grid flex justify-center">Story So Far</h1>
-                <div className="mt-5">
-                    <img src="./images/rectangle.png" />
+                <h1 className="text-black font-montserrat text-[40px] not-italic font-semibold leading-normal mt-6 md:grid flex justify-center">Story So Far</h1>
+                <div className="flex md:flex-row  flex-col gap-20 justify-center items-center  bg-custom-gradient ">
+
+                    <div className="border-solid  flex flex-row gap-2 transition-transform transform hover:scale-105 duration-300">
+                        <div className="flex flex-row">
+                            <div>
+                                <img src="./images/ballot1.png" />
+                            </div>
+                            <div className="flex flex-col items-center justify-center h-full">
+                                <h2 className="text-4xl font-bold">1200+</h2>
+                                <h2 className="text-xl">Total Votes</h2>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div className="border-solid  flex flex-row">
+                        <div className="flex flex-row gap-2   transition-transform transform hover:scale-105 duration-300">
+                            <div>
+                                <img src="./images/group.png" />
+                            </div>
+                            <div className="flex flex-col items-center justify-center h-full">
+                                <h2 className="text-4xl font-bold">1200+</h2>
+                                <h2 className="text-xl">Total Users</h2>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div className="border-solid  flex flex-row gap-2 transition-transform transform hover:scale-105 duration-300">
+                        <div className="flex flex-row pb-2">
+                            <div>
+                                <img src="./images/cloudcomputing.png" />
+                            </div>
+                            <div className="flex flex-col items-center justify-center h-full">
+                                <h2 className="text-4xl font-bold">1200+</h2>
+                                <h2 className="text-xl">Total Uploads</h2>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
-
-                <div className="mt-10">
-                    <img src="./images/howWork.png" />
-                </div>
-
-
-                <div className="bg-[#F7F7F7] p-4 px-[200px] mt-4">
-                    <h3 className="font-semibold text-[24px]">Rewards</h3>
-                    <p className="mt-4">
-                        There is always a reward for the winners of the competitions hosted on tapcoe, so get exciting rewards and <br/>enjoy the event with all the fun elements and enthusiasm.
-                    </p>
-
-                </div>
-
             </div>
+
+            <div className="bg-[#F7F7F7] flex flex-col  justify-center items-center ">
+  <div className="mt-4">
+  <h3 className="ext-black font-montserrat text-[40px] not-italic font-semibold leading-none">Rewards</h3>
+  </div>
+  <div className="flex flex-wrap">
+<p className="text-black text-center font-montserrat text-[24px] not-italic font-normal leading-normal">
+    There is always a reward for the winners of the competitions hosted on tapcoe, 
+    so get exciting rewards and enjoy the event with all the fun elements and enthusiasm.
+  </p>
+</div>
+</div>
+
+
+
+
         </div>
     )
 }
