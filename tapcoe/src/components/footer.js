@@ -3,11 +3,11 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 're
 export function Footer() {
     return (
         <div className=" flex md:flex-row gap-20 flex-col justify-center  mt-4">
-            <div className="">
-                <p className="text-black font-[Montserrat] text-[20px] not-italic font-normal leading-normal">
-                    Here's all the fame you need for all the talent you've got, the work <br /> you do and how amazingly you flaunt your content. Here you go, <br /> Tap the best you think with tapcoe.
+            <div className="items-center justify-center text-center">
+                <p className="text-black font-[Montserrat] text-[20px] not-italic font-normal leading-normal w-[300px]">
+                    Here's all the fame you need for all the talent you've got, the work  you do and how amazingly you flaunt your content. Here you go,  Tap the best you think with tapcoe.
                 </p>
-                <div className="flex  space-x-6 mt-4">
+                <div className="flex  space-x-6 mt-4 items-center justify-center">
                     <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                         <FaFacebookF className="text-blue-600 hover:text-blue-800 w-6 h-6 transition-transform transform hover:scale-110" />
                     </a>
