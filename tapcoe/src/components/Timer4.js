@@ -54,10 +54,10 @@ const Timer4 = ({startTime,eventName,eventAddress}) => {
         }
       }, [startTime]);
   return (
-<div className="  items-center justify-center sm:w-64 bg-white overflow-hidden shadow-lg  hover:translate-x-3.5 " style={{width:"350px"}}>
+<div className="  items-center justify-center sm:w-64 bg-white overflow-hidden shadow-lg  eventCard " style={{width:"350px"}}>
     <div className="flex flex-col  items-center justify-center gap-2 ">
-        <div className="" style={{width:"150px"}}>
-<img src="event.png"/>
+        <div className="" style={{width:"100%",height:"100%"} }>
+<img className="eventImage grow object-cover -z-10" src="images/eventimg.png"/>
         </div>
         <div className="w-[100%]  flex items-center justify-center">
             <p className="text-black-500  py-1 rounded-md text-xl font-semibold">{eventName}</p>

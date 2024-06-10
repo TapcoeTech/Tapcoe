@@ -102,7 +102,7 @@ const Home = () => {
             <div className="">
                 <h1 className="font-semibold text-[30px] mt-6 md:grid flex justify-center">Events</h1>
 
-                <div className="flex gap-4 flex-wrap justify-center">
+                {/* <div className="flex gap-4 flex-wrap justify-center">
                     {events?.map((value, index) => (
                         <div className="w-[350px] eventCard" key={index} >
                             <div className="overflow-hidden">
@@ -162,7 +162,17 @@ const Home = () => {
                             </div>
                         </div>
                     ))}
-                </div>
+                </div> */}
+           <div className="flex md:flex-row flex-col justify-center items-center gap-8">
+           {events?.map((value,item)=>{
+                return(
+                    <div className="">
+                        {console.log(value,item,"kkkkkkkkkkk")}
+                    <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress}/>
+                    </div>
+                )
+              })}
+           </div>
 
             </div>
 
