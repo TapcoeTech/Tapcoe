@@ -27,8 +27,8 @@ export function Footer() {
             </div>
             <div>
 
-                <p className='text-black font-bold text-base '>Userfull Links</p>
-                <ul className="list-none ml-4">
+                <p className='text-black font-bold text-base ml-2'>Userfull Links</p>
+                <ul className="list-none ml-2 ">
                     <li><a href="#home" className="text-blue-600 hover:text-blue-800">Home</a></li>
                     <li><a href="#about" className="text-blue-600 hover:text-blue-800">About Us</a></li>
                     <li><a href="#privacy" className="text-blue-600 hover:text-blue-800">Privacy Policy</a></li>
@@ -39,13 +39,13 @@ export function Footer() {
                 </ul>
 
             </div>
-            <div className='flex flex-col'>
+            <div className='flex flex-col ml-2 md:ml-0'>
                 <div>
                     <p className='text-black font-bold text-base  '>Mail Us:</p>
                     <p className='text-black font-medium text-sm"'>teamtapcoe@gmail.com</p>
                 </div>
                 <div>
-                    <p className='text-black font-bold text-base  '>Subscribe</p>
+                    <p className='text-black font-bold text-base   md:ml-0 '>Subscribe</p>
                     <p className='text-black font-medium text-sm"'>Don’t miss to subscribe to our new feeds,<br />
                         kindly fill the form below.</p>
                     <div class="flex items-center">
