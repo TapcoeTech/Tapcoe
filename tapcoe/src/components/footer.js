@@ -4,7 +4,7 @@ export function Footer() {
     return (
         <div className=" flex md:flex-row gap-20 flex-col justify-center  mt-4">
             <div className="items-center justify-center text-center">
-                <p className="text-black font-[Montserrat] text-[20px] not-italic font-normal leading-normal w-[300px]">
+                <p className="text-black text-center font-montserrat text-[24px] not-italic font-normal leading-normal w-[300px]">
                     Here's all the fame you need for all the talent you've got, the work  you do and how amazingly you flaunt your content. Here you go,  Tap the best you think with tapcoe.
                 </p>
                 <div className="flex  space-x-6 mt-4 items-center justify-center">
