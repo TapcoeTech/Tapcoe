@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar"
 import Swipper from "../components/Swipper"
 import Timer4 from "../components/Timer4"
 import '../App.css'
+import { Footer } from "../components/footer"
 
 const Home = () => {
     const [isMenu, setMenu] = useState(false);
@@ -161,16 +162,16 @@ const Home = () => {
                         </div>
                     ))}
                 </div> */}
-           <div className="flex md:flex-row flex-col justify-center items-center gap-8">
-           {events?.map((value,item)=>{
-                return(
-                    <div className="">
-                       
-                    <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress}/>
-                    </div>
-                )
-              })}
-           </div>
+                <div className="flex md:flex-row flex-col justify-center items-center gap-8">
+                    {events?.map((value, item) => {
+                        return (
+                            <div className="">
+
+                                <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress} />
+                            </div>
+                        )
+                    })}
+                </div>
 
             </div>
 
@@ -223,23 +224,26 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-
+            <div>
+                <img className="max-w-full h-auto" src="images/howWork.png"/>
+            </div>
+            <div className="mt-4 flex pl-6 justify-center items-center">
+                    {/* <h1 className="ext-black font-montserrat text-[40px] not-italic font-semibold leading-none">Rewards</h1> */}
+                    <h1 className="font-semibold text-[30px]  ">Rewards</h1>
+                </div>
             <div className="bg-[#F7F7F7] flex flex-col  justify-center items-center ">
-  <div className="mt-4">
-  {/* <h1 className="ext-black font-montserrat text-[40px] not-italic font-semibold leading-none">Rewards</h1> */}
-  <h1 className="font-semibold text-[30px]  md:grid flex justify-center">Rewards</h1>
-  </div>
-  <div className="flex flex-wrap">
-<p className="text-black text-center font-montserrat text-[24px] not-italic font-normal leading-normal">
-    There is always a reward for the winners of the competitions hosted on tapcoe, 
-    so get exciting rewards and enjoy the event with all the fun elements and enthusiasm.
-  </p>
-</div>
-</div>
+               
+                <div className="flex flex-wrap">
+                    <p className="text-black text-center font-montserrat text-[24px] not-italic font-normal leading-normal">
+                        There is always a reward for the winners of the competitions hosted on tapcoe,
+                        so get exciting rewards and enjoy the event with all the fun elements and enthusiasm.
+                    </p>
+                </div>
+            </div>
 
 
 
-
+            <Footer />
         </div>
     )
 }
