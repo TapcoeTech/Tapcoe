@@ -73,7 +73,7 @@ const navigate=useNavigate();
                     <div>
                         <img src="https://tapcoe.com/source/assets/img/taplg.png" alt="loading..." />
                     </div>
-                    <div onClick={() => {setIsMenu(false);handleMenuState()}}>
+                    <div onClick={() => {setIsMenu(false);handleMenuState() }}>
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -83,9 +83,9 @@ const navigate=useNavigate();
                 </div>
                 <div className="bar-menu">
                     {menuItems.map((item, index) => (
-                        <div className="m-2" key={index}>
+                        <div className="m-2" key={index} onClick={()=>{navigate(item.redirecturl)}}>
                             <div className="slider">
-                                <div className=""> {item.title}</div>
+                                <div className="" > {item.title}</div>
                             </div>
                         </div>
                     ))}

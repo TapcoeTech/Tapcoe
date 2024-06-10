@@ -2,7 +2,7 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 're
 
 export function Footer() {
     return (
-        <div className=" flex md:flex-row gap-20 flex-col justify-center items-center mt-4">
+        <div className=" flex md:flex-row gap-20 flex-col justify-center  mt-4">
             <div className="">
                 <p className="text-black font-[Montserrat] text-[20px] not-italic font-normal leading-normal">
                     Here's all the fame you need for all the talent you've got, the work <br /> you do and how amazingly you flaunt your content. Here you go, <br /> Tap the best you think with tapcoe.
