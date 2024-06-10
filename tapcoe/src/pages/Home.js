@@ -5,41 +5,18 @@ import Swipper from "../components/Swipper"
 import Timer4 from "../components/Timer4"
 import '../App.css'
 import { Footer } from "../components/footer"
+import { useNavigate } from "react-router-dom"
 
-const Home = () => {
-    const [isMenu, setMenu] = useState(false);
-    const events = [
-        {
-            startTime: "2024-10-10T02:30:00",
-            eventName: "The Friends",
-            eventAddress: "Kankarbgh,patna",
-            image: './images/event.png',
-            iconImg: './images/iconImg.png',
-        },
-        {
-            startTime: "2024-10-11T08:00:00",
-            eventName: "Mr. & Miss Flex",
-            eventAddress: "Delhi,karolBagh",
-            image: './images/event.png',
-            iconImg: './images/iconImg.png',
-        },
-        {
-            startTime: "2024-10-12T14:45:00",
-            eventName: "Chacha Contest",
-            eventAddress: "Gurgaon, sector 47",
-            image: './images/event.png',
-            iconImg: './images/iconImg.png',
-        },
-    ];
-    const handleMenuState = () => {
-        setMenu(!isMenu);
+const Home = ({isMenu,events}) => {
+ console.log(isMenu,"isMenu",events)
+    const navigate=useNavigate();
 
-    }
+ 
 
     return (
         <div>
             <div className='header'>
-                <Navbar handleMenuState={handleMenuState} />
+               
                 <div className={`${isMenu ? " opacity-25" : ""}`}>
                     <Swipper />
                     {/* <div className="flex  flex-row justify-between items-center gap-8">
@@ -165,9 +142,12 @@ const Home = () => {
                 <div className="flex md:flex-row flex-col justify-center items-center gap-8">
                     {events?.map((value, item) => {
                         return (
-                            <div className="" key={item}>
+                            <div className="" key={item} onClick={()=>{
+                              
+                               navigate('/Eventdetails')
+                            }}>
 
-                                <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress} />
+                                <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress}  />
                             </div>
                         )
                     })}
