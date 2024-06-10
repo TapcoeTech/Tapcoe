@@ -1,29 +1,36 @@
 import { useState } from "react";
 import './Navbar.css';
+import { useNavigate } from "react-router-dom";
 
 function Navbar({handleMenuState}) {
 
     const [isMenu, setIsMenu] = useState(false);
     const [active, setActive] = useState('')
-
+const navigate=useNavigate();
     const menuItems = [
         {
             title: "Home",
+            redirecturl:"/"
         },
         {
             title: "About Us",
+            redirecturl:""
         },
         {
             title: "Host An Event ",
+            redirecturl:"/hostEvent"
         },
         {
             title: "Campus Ambassadors",
+            redirecturl:""
         },
         {
             title: "Advertise with us",
+            redirecturl:""
         },
         {
             title: "Winners",
+            redirecturl:""
         }
 
     ];
@@ -36,7 +43,7 @@ function Navbar({handleMenuState}) {
                 <div className="flex gap-10 ">
                     {menuItems?.map((val, i) => {
                         return (
-                            <div key={i.name} onClick={() => {setActive(val.title)}} className={`sm:block hidden mt-1 cursor-pointer flex text-white uppercase ${active === val.title ? "text-sky-400 underline" : 'text-yellow-400'}  text-[13px]`}>{val.title}</div>
+                            <div key={i.name} onClick={() => {setActive(val.title); navigate(val.redirecturl)}} className={`sm:block hidden mt-1 cursor-pointer flex text-white uppercase ${active === val.title ? "text-sky-400 underline" : 'text-yellow-400'}  text-[13px]`}>{val.title}</div>
                         )
                     })}
                 </div>

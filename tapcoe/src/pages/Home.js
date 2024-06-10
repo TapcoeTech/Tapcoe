@@ -9,23 +9,21 @@ const Home = () => {
     const [isMenu, setMenu] = useState(false);
     const events = [
         {
-            startTime: "2024-06-10T02:30:00",
+            startTime: "2024-10-10T02:30:00",
             eventName: "The Friends",
             eventAddress: "Kankarbgh,patna",
             image: './images/event.png',
             iconImg: './images/iconImg.png',
         },
         {
-            startTime: "2024-06-11T08:00:00",
+            startTime: "2024-10-11T08:00:00",
             eventName: "Mr. & Miss Flex",
             eventAddress: "Delhi,karolBagh",
             image: './images/event.png',
             iconImg: './images/iconImg.png',
-
-
         },
         {
-            startTime: "2024-06-12T14:45:00",
+            startTime: "2024-10-12T14:45:00",
             eventName: "Chacha Contest",
             eventAddress: "Gurgaon, sector 47",
             image: './images/event.png',
@@ -167,7 +165,7 @@ const Home = () => {
            {events?.map((value,item)=>{
                 return(
                     <div className="">
-                        {console.log(value,item,"kkkkkkkkkkk")}
+                       
                     <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress}/>
                     </div>
                 )
@@ -180,7 +178,8 @@ const Home = () => {
             {/* Story  */}
 
             <div className="mt-12">
-                <h1 className="text-black font-montserrat text-[40px] not-italic font-semibold leading-normal mt-6 md:grid flex justify-center">Story So Far</h1>
+                {/* <h1 className="text-black font-montserrat text-[40px] not-italic font-semibold leading-normal mt-6 md:grid flex justify-center">Story So Far</h1> */}
+                <h1 className="font-semibold text-[30px]  md:grid flex justify-center">Story So Far</h1>
                 <div className="flex md:flex-row  flex-col gap-20 justify-center items-center  bg-custom-gradient ">
 
                     <div className="border-solid  flex flex-row gap-2 transition-transform transform hover:scale-105 duration-300">
@@ -227,7 +226,8 @@ const Home = () => {
 
             <div className="bg-[#F7F7F7] flex flex-col  justify-center items-center ">
   <div className="mt-4">
-  <h3 className="ext-black font-montserrat text-[40px] not-italic font-semibold leading-none">Rewards</h3>
+  {/* <h1 className="ext-black font-montserrat text-[40px] not-italic font-semibold leading-none">Rewards</h1> */}
+  <h1 className="font-semibold text-[30px]  md:grid flex justify-center">Rewards</h1>
   </div>
   <div className="flex flex-wrap">
 <p className="text-black text-center font-montserrat text-[24px] not-italic font-normal leading-normal">
