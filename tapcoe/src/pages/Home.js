@@ -165,7 +165,7 @@ const Home = () => {
                 <div className="flex md:flex-row flex-col justify-center items-center gap-8">
                     {events?.map((value, item) => {
                         return (
-                            <div className="">
+                            <div className="" key={item}>
 
                                 <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress} />
                             </div>

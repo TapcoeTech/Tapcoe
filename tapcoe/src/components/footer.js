@@ -48,9 +48,9 @@ export function Footer() {
                     <p className='text-black font-bold text-base   md:ml-0 '>Subscribe</p>
                     <p className='text-black font-medium text-sm"'>Don’t miss to subscribe to our new feeds,<br />
                         kindly fill the form below.</p>
-                    <div class="flex items-center">
-                        <input type="email" class="border border-yellow-400 rounded-l py-2 px-4" placeholder="Enter your email" />
-                        <button type="submit" class="bg-yellow-400 border border-yellow-400 rounded-r py-2 px-4 ml-2">Submit</button>
+                    <div className="flex items-center">
+                        <input type="email" className="border border-yellow-400 rounded-l py-2 px-4" placeholder="Enter your email" />
+                        <button type="submit" className="bg-yellow-400 border border-yellow-400 rounded-r py-2 px-4 ml-2">Submit</button>
                     </div>
 
                 </div>

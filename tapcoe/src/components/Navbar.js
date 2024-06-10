@@ -43,7 +43,7 @@ const navigate=useNavigate();
                 <div className="flex gap-10 ">
                     {menuItems?.map((val, i) => {
                         return (
-                            <div key={i.name} onClick={() => {setActive(val.title); navigate(val.redirecturl)}} className={`sm:block hidden mt-1 cursor-pointer flex text-white uppercase ${active === val.title ? "text-sky-400 underline" : 'text-yellow-400'}  text-[13px]`}>{val.title}</div>
+                            <div key={i} onClick={() => {setActive(val.title); navigate(val.redirecturl)}} className={`sm:block hidden mt-1 cursor-pointer flex text-white uppercase ${active === val.title ? "text-sky-400 underline" : 'text-yellow-400'}  text-[13px]`}>{val.title}</div>
                         )
                     })}
                 </div>
