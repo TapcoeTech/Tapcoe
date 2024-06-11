@@ -142,13 +142,15 @@ const Home = ({isMenu,handlechange,events}) => {
                 <div className="flex md:flex-row flex-col justify-center items-center gap-8">
                     {events?.map((value, item) => {
                         return (
+                            <a href="/Eventdetails">
                             <div className="" key={item} onClick={()=>{
                              handlechange(value.eventId,value.startTime,value?.eventName,value?.eventAddress);
-                               navigate('/Eventdetails')
+                            
                             }}>
 
                                 <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress}   />
                             </div>
+                            </a>
                         )
                     })}
                 </div>
