@@ -5,11 +5,11 @@ import Swipper from "../components/Swipper"
 import Timer4 from "../components/Timer4"
 import '../App.css'
 import { Footer } from "../components/footer"
-import { useNavigate } from "react-router-dom"
+
 
 const Home = ({isMenu,handlechange,events}) => {
  console.log(isMenu,"isMenu",events)
-    const navigate=useNavigate();
+   
 
  
 
@@ -142,15 +142,13 @@ const Home = ({isMenu,handlechange,events}) => {
                 <div className="flex md:flex-row flex-col justify-center items-center gap-8">
                     {events?.map((value, item) => {
                         return (
-                            <a href="/Eventdetails">
                             <div className="" key={item} onClick={()=>{
-                             handlechange(value.eventId,value.startTime,value?.eventName,value?.eventAddress);
-                            
+                            //  handlechange(value.eventId,value.startTime,value?.eventName,value?.eventAddress);
+                             
                             }}>
 
-                                <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress}   />
+                                <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress}  handlechange={handlechange} eventId={value?.eventId} />
                             </div>
-                            </a>
                         )
                     })}
                 </div>

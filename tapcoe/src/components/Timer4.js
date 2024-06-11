@@ -1,13 +1,15 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import "./Timer4.css"
-const Timer4 = ({startTime,eventName,eventAddress}) => {
+import { useNavigate } from "react-router-dom"
+
+const Timer4 = ({startTime,eventName,eventAddress,handlechange,eventId}) => {
     const [countDownTime, setCountDownTime] = useState({
         days: 0,
         hours: 0,
         minutes: 0,
         seconds: 0,
       });
-    
+      const navigate=useNavigate();
       const secondTimer = useRef(null);
     
       const getTimeDifference = (countDownDate) => {
@@ -142,7 +144,7 @@ const Timer4 = ({startTime,eventName,eventAddress}) => {
     {/* Buttons */}
     <div className="flex justify-center mt-1 space-x-1">
       <button className="text-black-500 px-2 py-1 rounded-md text-md font-semibold">Winners</button>
-      <button className="bg-yellow-400 px-2 py-1 rounded-md text-white text-md font-semibold">Open Event</button>
+      <button className="bg-yellow-400 px-2 py-1 rounded-md text-white text-md font-semibold" onClick={()=>{handlechange(eventId,startTime,eventName,eventAddress);   navigate('/Eventdetails');}}>Open Event</button>
     </div>
   </div>
 </div>
