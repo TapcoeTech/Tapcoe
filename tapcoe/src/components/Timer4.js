@@ -3,6 +3,7 @@ import "./Timer4.css"
 import { useNavigate } from "react-router-dom"
 
 const Timer4 = ({startTime,eventName,eventAddress,handlechange,eventId}) => {
+ 
     const [countDownTime, setCountDownTime] = useState({
         days: 0,
         hours: 0,
@@ -144,7 +145,12 @@ const Timer4 = ({startTime,eventName,eventAddress,handlechange,eventId}) => {
     {/* Buttons */}
     <div className="flex justify-center mt-1 space-x-1">
       <button className="text-black-500 px-2 py-1 rounded-md text-md font-semibold">Winners</button>
-    <a href="/Eventdetails">  <button className="bg-yellow-400 px-2 py-1 rounded-md text-white text-md font-semibold" onClick={()=>{handlechange(eventId,startTime,eventName,eventAddress);}}>Open Event</button></a>
+     <button className="bg-yellow-400 px-2 py-1 rounded-md text-white text-md font-semibold" onClick={()=>{
+      handlechange(eventId,startTime,eventName,eventAddress);
+    
+      navigate("/Eventdetails");
+      
+      }}>Open Event</button>
     </div>
   </div>
 </div>

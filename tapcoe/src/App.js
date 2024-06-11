@@ -17,8 +17,8 @@ function App() {
     eventAddress:""
 });
 
-const handlechange=(date, id,name,eventAddress)=> {
-  console.log(date, id,"tab");
+const handlechange=(date, id,name,eventAddress )=> {
+  
     setTab(prevState => ({
         ...prevState,
         eventId: date,
