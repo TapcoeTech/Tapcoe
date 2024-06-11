@@ -78,67 +78,7 @@ const Home = ({isMenu,handlechange,events}) => {
             <div className="">
                 <h1 className="font-semibold text-[30px] mt-6 md:grid flex justify-center">Events</h1>
 
-                {/* <div className="flex gap-4 flex-wrap justify-center">
-                    {events?.map((value, index) => (
-                        <div className="w-[350px] eventCard" key={index} >
-                            <div className="overflow-hidden">
-                                <img className="eventImage grow object-cover -z-10" src={value?.image} />
-                            </div>
-                            <div className="bg-white rounded-md shadow-lg p-4">
-                                <div className=" flex gap-4 justify-between items-center">
-
-                                    <div className="w-[80px]">
-                                        <img src={value?.iconImg} />
-                                    </div>
-                                    <div className="font-semibold text-[24px] text-[#004F4A]">{value?.eventName} </div>
-                                </div>
-
-                                <div className="flex gap-4 items-center justify-center mt-4">
-                                    <div>
-                                        <div className="flex gap-1">
-                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
-                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
-                                        </div>
-                                        <div className="text-[12px] ml-3 mt-1">Days</div>
-                                    </div>
-
-                                    <div>
-                                        <div className="flex gap-1">
-                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
-                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
-                                        </div>
-                                        <div className="text-[12px] ml-3 mt-1">Hours</div>
-                                    </div>
-
-                                    <div>
-                                        <div className="flex gap-1">
-                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
-                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
-                                        </div>
-                                        <div className="text-[12px] ml-3 mt-1">Minute</div>
-                                    </div>
-
-                                    <div>
-                                        <div className="flex gap-1">
-                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
-                                            <div className="bg-yellow-400 rounded-md p-2 px-3 font-semibold text-[16px]">0</div>
-                                        </div>
-                                        <div className="text-[12px] ml-3 mt-1">Second</div>
-                                    </div>
-
-                                </div>
-
-                                <div className="text-[#60918D] mt-3 flex justify-center ">{value?.eventAddress} </div>
-                                <div className=" mt-3 flex justify-center gap-4 items-center">
-                                    <div>Winners</div>
-                                    <div className="bg-yellow-400 rounded-lg py-2 px-3">Open Event</div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    ))}
-                </div> */}
+         
                 <div className="flex md:flex-row flex-col justify-center items-center gap-8">
                     {events?.map((value, item) => {
                         return (
