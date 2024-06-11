@@ -7,7 +7,7 @@ import '../App.css'
 import { Footer } from "../components/footer"
 import { useNavigate } from "react-router-dom"
 
-const Home = ({isMenu,events}) => {
+const Home = ({isMenu,handlechange,events}) => {
  console.log(isMenu,"isMenu",events)
     const navigate=useNavigate();
 
@@ -143,11 +143,11 @@ const Home = ({isMenu,events}) => {
                     {events?.map((value, item) => {
                         return (
                             <div className="" key={item} onClick={()=>{
-                              
+                             handlechange(value.eventId,value.startTime,value?.eventName,value?.eventAddress);
                                navigate('/Eventdetails')
                             }}>
 
-                                <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress}  />
+                                <Timer4 startTime={value.startTime} eventName={value?.eventName} eventAddress={value?.eventAddress}   />
                             </div>
                         )
                     })}

@@ -1,0 +1,16 @@
+/* Define the animation */
+@keyframes animate-topdown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply the animation to the changing values */
+.animate-topdown {
+    animation: animate-topdown 0.5s ease-out;
+}

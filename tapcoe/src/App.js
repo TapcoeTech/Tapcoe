@@ -10,11 +10,28 @@ import Navbar from './components/Navbar';
 function App() {
 
   const [isMenu, setMenu] = useState(false);
-  const handleMenuState = () => {
-      setMenu(!isMenu);
+  const [tab, setTab] = useState({
+    eventId: "",
+    startTime: "",
+    eventName:"",
+    eventAddress:""
+});
 
-  }
- 
+const handlechange=(date, id,name,eventAddress)=> {
+  console.log(date, id,"tab");
+    setTab(prevState => ({
+        ...prevState,
+        eventId: date,
+        startTime:id,
+        eventName:name,
+        eventAddress:eventAddress
+    }));
+}
+ const handleMenuState = () => {
+  setMenu(!isMenu);
+
+}
+
   const events = [
     {
       eventId:"1",
@@ -45,9 +62,9 @@ function App() {
       <Router>
       <Navbar handleMenuState={handleMenuState} />
         <Routes>
-          <Route path="/" element={<Home  isMenu={isMenu} events={events}/>} />
+          <Route path="/" element={<Home  isMenu={isMenu} handlechange={handlechange} events={events} />} />
           <Route path="/hostEvent" element={<Eventhost  isMenu={isMenu}/>} />
-          <Route path="/Eventdetails" element={<Eventdetails  isMenu={isMenu}/>} />
+          <Route path="/Eventdetails" element={<Eventdetails  isMenu={isMenu} tab={tab} name={tab.eventName} address={tab.eventAddress}/>} />
           {/* Add more routes here as needed */}
         </Routes>
       </Router>
