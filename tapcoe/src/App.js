@@ -7,6 +7,7 @@ import { Eventdetails } from './components/Eventdetails';
 import Navbar from './components/Navbar';
 import { Profile } from './pages/Profile';
 import { About } from './pages/About';
+import { Campus } from './pages/Campus_ambassadors';
 
 
 function App() {
@@ -60,7 +61,7 @@ const handlechange=(date, id,name,eventAddress )=> {
     },
 ];
   return (
-    <div className='bg-white'>
+    <div className=''>
       <Router>
       <Navbar handleMenuState={handleMenuState} />
         <Routes>
@@ -69,6 +70,7 @@ const handlechange=(date, id,name,eventAddress )=> {
           <Route path="/Eventdetails" element={<Eventdetails  isMenu={isMenu} tab={tab} name={tab.eventName} address={tab.eventAddress}/>} />
           <Route path="/Profile" element={<Profile/>} />
           <Route path="/Aboutus" element={<About/>} />
+          <Route path="/Campusambassadors" element={<Campus/>} />
           {/* Add more routes here as needed */}
         </Routes>
       </Router>

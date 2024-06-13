@@ -2,27 +2,25 @@ import React from 'react';
 import SunEditor from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
 
-function Eventhost() {
-
+export const Campus = () => {
     return (
         <div>
             <h1 className="flex justify-center mt-5 text-[22px]">HOST AN EVENT</h1>
             <div className="p-10 flex justify-center items-center">
                 <div className="bg-white p-4 rounded-md">
                     <div>
-                        <div className="mt-3 text-[22px]">Host An Events</div>
+                        <div className="mt-3 text-[22px]">Campus Ambassador</div>
                         <p className="mt-2" style={{ fontFamily: "Abhaya Libres, serif", color: '#898B8C' }}>
-                            Hosting an event can be a daunting task, but with our online voting-based event hosting website, it doesn't have to be. We offer a range of features and <br />tools to help you plan, promote, and execute a successful event that engages your audience and facilitates meaningful conversations and decisions.
+                            We are excited to offer a campus ambassador program for students who are passionate about creating positive change and promoting participatory<br/> events in their communities. Our campus ambassadors play a crucial role in spreading the word about our online voting-based event hosting website <br/>and empowering their peers to participate in meaningful conversations and decisions.<br/>
+                            As a campus ambassador, you will receive exclusive access to our platform, training and support from our team, and a range of resources to help you <br/>promote our platform and host successful events on your campus. You will also have the opportunity to connect with other like-minded students from <br/> around the world and build your network and leadership skills.<br/>
+                            Here are some of the benefits of being a campus ambassador:<br/>
+                            Gain valuable experience: As a campus ambassador, you will have the opportunity to develop your leadership, communication, and event planning <br/>skills. You will also gain hands-on experience in marketing, social media management, and community outreach.<br/>
+                            Make a difference: As a campus ambassador, you will be promoting a platform that facilitates positive change and creates more inclusive and<br/>participatory event experiences. You will be empowering your peers to have their voices heard and make a difference in their communities.<br/>
+                            Build your network: As a campus ambassador, you will have the opportunity to connect with other like-minded students from around the world and<br/> build your network. You will also have access to our team of experienced event professionals and developers, who can provide you with guidance and <br/> support.
+                            Earn rewards: As a campus ambassador, you will have the opportunity to earn rewards for your efforts, including exclusive access to events,<br/> merchandise, and even scholarship opportunities.<br/>
+                            We are looking for passionate and motivated students who are committed to creating positive change in their communities. If you are interested in <br/>becoming a campus ambassador for our online voting-based event hosting website, please contact us today. We look forward to hearing from you.
                         </p>
-                        <div className="mt-3 text-[22px]">How it works ?</div>
-                        <p className="mt-2" style={{ fontFamily: "Abhaya Libres, serif", color: '#898B8C' }}>
-                            Plan Your Event: Our platform allows you to create a customized event page with all the details your attendees need to know. You can add event <br />descriptions, agendas, speaker bios, and more. <br />
-                            Promote Your Event: Our platform offers a range of marketing tools to help you promote your event and reach a wider audience. You can create<br /> custom email invitations, social media posts, and even set up paid advertising campaigns to attract more attendees.<br />
-                            Host Your Event: Our platform offers a range of features to help you host your event online. You can set up live streams, video conferences, and even <br />virtual breakout rooms to facilitate meaningful conversations and collaboration. Our platform also allows you to set up online voting and decision- <br />making processes, so you can get feedback from your attendees and make informed decisions.<br />
-                            Analyze Your Results: Our platform provides real-time analytics and reports on your event, so you can track attendance, engagement, and voting <br />results. You can use this data to improve your event planning and make more informed decisions in the future.<br />
-                            Hosting an event has never been easier. With our online voting-based event hosting website, you can create a more inclusive, participatory, and <br /> engaging event experience that drives positive change in your community and beyond. So why wait? Sign up today and start hosting events that <br />matter.<br />
-                            Fill the form below to connect with us -
-                        </p>
+
                     </div>
 
                     <div className="mt-10">
@@ -55,12 +53,12 @@ function Eventhost() {
                                 </div>
                                 <div class="relative z-0 w-full mb-5 group">
                                     <input type="text" name="floating_company" id="floating_company" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                                    <label for="floating_company" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Type of Event You Want To Host*</label>
+                                    <label for="floating_company" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">why do you want to become a campus ambassdor?**</label>
                                 </div>
                             </div>
                             <div class="relative z-0 w-full mb-5 group">
                                 <SunEditor
-                                height='150px'
+                                    height='150px'
                                     setOptions={{
                                         buttonList: [
                                             ["bold", "italic", "underline", "hiliteColor"],
@@ -81,7 +79,3 @@ function Eventhost() {
         </div>
     )
 }
-export default Eventhost;
-
-
-

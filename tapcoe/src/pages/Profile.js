@@ -1,8 +1,6 @@
-import { useNavigate } from "react-router-dom"
 import Countdown from "../components/countDown"
 
 export const Profile = () => {
-    const navigate=useNavigate();
     return (
         <div class="flex flex-col md:flex-row justify-center items-center md:gap-8 gap-4 p-4 mt-10">
 
@@ -48,7 +46,7 @@ export const Profile = () => {
                     </div>
                 </div>
                 <div class="flex gap-4">
-                    <button class="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200" aria-label="Tap" onClick={() => {navigate("/Profile")}}>
+                    <button class="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200" aria-label="Tap" onClick={() => {}}>
                         <img src="./images/heart.png" alt="Heart icon" class="mr-2" />
                         <div>Tap</div>
                     </button>

@@ -22,7 +22,7 @@ const navigate=useNavigate();
         },
         {
             title: "Campus Ambassadors",
-            redirecturl:""
+            redirecturl:"/Campusambassadors"
         },
         {
             title: "Advertise with us",
