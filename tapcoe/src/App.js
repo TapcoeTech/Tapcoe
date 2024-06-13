@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import { Profile } from './pages/Profile';
 import { About } from './pages/About';
 import { Campus } from './pages/Campus_ambassadors';
+import { Advertise } from './pages/Advertisewithus';
 
 
 function App() {
@@ -71,6 +72,7 @@ const handlechange=(date, id,name,eventAddress )=> {
           <Route path="/Profile" element={<Profile/>} />
           <Route path="/Aboutus" element={<About/>} />
           <Route path="/Campusambassadors" element={<Campus/>} />
+          <Route path="/Advertisewithus" element={<Advertise/>}/>
           {/* Add more routes here as needed */}
         </Routes>
       </Router>

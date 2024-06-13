@@ -26,7 +26,7 @@ const navigate=useNavigate();
         },
         {
             title: "Advertise with us",
-            redirecturl:""
+            redirecturl:"Advertisewithus"
         },
         {
             title: "Winners",
