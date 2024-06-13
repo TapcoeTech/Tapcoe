@@ -37,7 +37,7 @@ export const Profile = () => {
                         Lorem is a simple to showcase the text of the printing and typesetting industry.
                     </p>
                 </div>
-                <div class="flex flex-row gap-4">
+                <div class="flex flex-row gap-4 items-center justify-center">
                     <div>
                         <p><strong>Uploaded</strong> By: Sakshi</p>
                     </div>
