@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import './Navbar.css';
 import { useNavigate } from "react-router-dom";
 
@@ -34,7 +34,12 @@ const navigate=useNavigate();
         }
 
     ];
-
+    const handleMenuItemClick = (title, redirecturl) => {
+        setActive(title);
+        navigate(redirecturl);
+        setIsMenu(false); // Close the menu
+        handleMenuState(); // Notify the parent or global state
+    };
     return (
         <div className="flex justify-center items-center p-4 bg-[#4b4c4c] h-[100px]">
             <div className="flex sm:gap-[80px] gap-0 ">
@@ -83,7 +88,7 @@ const navigate=useNavigate();
                 </div>
                 <div className="bar-menu">
                     {menuItems.map((item, index) => (
-                        <div className="m-2" key={index} onClick={()=>{navigate(item.redirecturl)}}>
+                        <div className="m-2" key={index} onClick={() => handleMenuItemClick(item.title, item.redirecturl)}>
                             <div className="slider">
                                 <div className="" > {item.title}</div>
                             </div>
