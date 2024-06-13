@@ -12,7 +12,7 @@ export const Profile = () => {
                 </a>
             </div>
     
-            <div class="flex flex-row p-4 items-center">
+            <div class="flex flex-row p-4 justify-center items-center">
                 <div class="flex p-3 items-center gap-2 border-gray-400">
                     <img src="/images/pointer.png" alt="Pointer" />
                     <p class="text-[12px] font-montserrat text-[#004F4A]">Tap ID: 3456</p>
@@ -32,7 +32,7 @@ export const Profile = () => {
             </div>
     
             <div class="flex flex-col gap-4 justify-center items-center pb-4">
-                <div class="text-center">
+                <div class="text-center p-4">
                     <p style={{color:"#666"}}>
                         Lorem is a simple to showcase the text of the printing and typesetting industry.
                     </p>
