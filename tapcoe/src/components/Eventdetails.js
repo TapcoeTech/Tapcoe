@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Countdown from "./countDown";
 
@@ -120,12 +121,14 @@ const eventDetails = {
 
 
 export function Eventdetails({ tab, name, address }) {
+
+    const navigate=useNavigate();
     return (
         <>
             {/* Content */}
             <div className="overflow-x-hidden">
                 <div>
-                    {console.log(tab, "llllllllllll")}
+                    
                     <div className="flex flex-col justify-center items-center mt-4">
                         <p className="font-semibold text-3xl">Event Details</p>
                         <div className="max-w-3xl text-center">
@@ -186,13 +189,24 @@ export function Eventdetails({ tab, name, address }) {
                                 </div>
                             </div>
                             <div className="flex justify-center items-center">
-                                <div className="flex justify-center items-center mt-4 gap-4 bg-yellow-500 rounded-md px-4 py-2 w-[100px]">
-
-                                    <img src="./images/heart.png" />
-                                    <div>Tap</div>
-
+                                <div className="flex gap-4 mt-4">
+                                    <button
+                                        className="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200"
+                                        aria-label="Tap" onClick={()=>{navigate("/Profile")}}
+                                    >
+                                        <img src="./images/heart.png" alt="Heart icon" className="mr-2" />
+                                        <div>Tap</div>
+                                    </button>
+                                    <button
+                                        className="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200"
+                                        aria-label="Share"
+                                    >
+                                        <img src="./images/share.png" alt="Share icon" className="mr-2" />
+                                        <div>Share</div>
+                                    </button>
                                 </div>
                             </div>
+
                         </div>
                     ))}
 

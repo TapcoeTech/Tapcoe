@@ -5,6 +5,7 @@ import './App.css';
 import Eventhost from './pages/Hostevent';
 import { Eventdetails } from './components/Eventdetails';
 import Navbar from './components/Navbar';
+import { Profile } from './pages/Profile';
 
 
 function App() {
@@ -65,6 +66,7 @@ const handlechange=(date, id,name,eventAddress )=> {
           <Route path="/" element={<Home  isMenu={isMenu} handlechange={handlechange} events={events} />} />
           <Route path="/hostEvent" element={<Eventhost  isMenu={isMenu}/>} />
           <Route path="/Eventdetails" element={<Eventdetails  isMenu={isMenu} tab={tab} name={tab.eventName} address={tab.eventAddress}/>} />
+          <Route path="/Profile" element={<Profile/>} />
           {/* Add more routes here as needed */}
         </Routes>
       </Router>
