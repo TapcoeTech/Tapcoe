@@ -14,7 +14,7 @@ const navigate=useNavigate();
         },
         {
             title: "About Us",
-            redirecturl:""
+            redirecturl:"/Aboutus"
         },
         {
             title: "Host An Event ",

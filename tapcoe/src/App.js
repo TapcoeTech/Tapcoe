@@ -6,6 +6,7 @@ import Eventhost from './pages/Hostevent';
 import { Eventdetails } from './components/Eventdetails';
 import Navbar from './components/Navbar';
 import { Profile } from './pages/Profile';
+import { About } from './pages/About';
 
 
 function App() {
@@ -67,6 +68,7 @@ const handlechange=(date, id,name,eventAddress )=> {
           <Route path="/hostEvent" element={<Eventhost  isMenu={isMenu}/>} />
           <Route path="/Eventdetails" element={<Eventdetails  isMenu={isMenu} tab={tab} name={tab.eventName} address={tab.eventAddress}/>} />
           <Route path="/Profile" element={<Profile/>} />
+          <Route path="/Aboutus" element={<About/>} />
           {/* Add more routes here as needed */}
         </Routes>
       </Router>
