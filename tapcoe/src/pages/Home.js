@@ -5,7 +5,7 @@ import Swipper from "../components/Swipper"
 import Timer4 from "../components/Timer4"
 import '../App.css'
 import { Footer } from "../components/footer"
-
+import { FaCalendarPlus, FaCalendarCheck, FaUpload } from 'react-icons/fa';
 
 const Home = ({isMenu,handlechange,events}) => {
  console.log(isMenu,"isMenu",events)
@@ -38,6 +38,28 @@ const Home = ({isMenu,handlechange,events}) => {
 
 
                 </div>
+                {/* <div class="sticky top-0 ...">A</div> */}
+                {/* <div class="fixed bottom-0 left-0 w-full bg-gray-400 text-white z-50 flex justify-around items-center py-3">
+        <div class="p-2  rounded  cursor-pointer">Host Event</div>
+        <div class="p-2  rounded  cursor-pointer">My Event</div>
+        <div class="p-2  rounded  cursor-pointer">Upload</div>
+    </div> */}
+
+
+<div className="fixed bottom-0 left-0 w-full bg-gray-800 bg-opacity-50 text-white z-50 flex justify-center sm:justify-around items-center py-3">
+  <div className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-gray-600 cursor-pointer mb-2 sm:mb-0 sm:ml-5">
+    <FaCalendarPlus className="text-lg" />
+    <span className="ml-2">Host Event</span>
+  </div>
+  <div className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-gray-600 cursor-pointer mb-2 sm:mb-0 sm:ml-5">
+    <FaCalendarCheck className="text-lg" />
+    <span className="ml-2">My Event</span>
+  </div>
+  <div className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-gray-600 cursor-pointer mb-2 sm:mb-0 sm:ml-5">
+    <FaUpload className="text-lg" />
+    <span className="ml-2">Upload</span>
+  </div>
+</div>
 
                 <div className="p-4 md:flex grid justify-center items-center gap-10 mt-[100px]">
                     <div>

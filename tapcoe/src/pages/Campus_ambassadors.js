@@ -64,7 +64,7 @@ export const Campus = () => {
                                         buttonList: [
                                             ["bold", "italic", "underline", "hiliteColor"],
                                             ["list"],
-                                            ["link"],
+                                            ["link"], 
                                         ],
                                     }}
                                     spellChek={true}

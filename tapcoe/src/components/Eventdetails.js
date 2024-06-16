@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Countdown from "./countDown";
-
+import { FaHome, FaSync, FaTrophy, FaUpload } from 'react-icons/fa';
 // export function Eventdetails({tab}) {
 //     return (<>
 // {console.log(tab,"llllllllllll")}
@@ -122,13 +122,13 @@ const eventDetails = {
 
 export function Eventdetails({ tab, name, address }) {
 
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     return (
         <>
             {/* Content */}
             <div className="overflow-x-hidden">
                 <div>
-                    
+
                     <div className="flex flex-col justify-center items-center mt-4">
                         <p className="font-semibold text-3xl">Event Details</p>
                         <div className="max-w-3xl text-center">
@@ -192,7 +192,7 @@ export function Eventdetails({ tab, name, address }) {
                                 <div className="flex gap-4 mt-4">
                                     <button
                                         className="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200"
-                                        aria-label="Tap" onClick={()=>{navigate("/Profile")}}
+                                        aria-label="Tap" onClick={() => { navigate("/Profile") }}
                                     >
                                         <img src="./images/heart.png" alt="Heart icon" className="mr-2" />
                                         <div>Tap</div>
@@ -213,6 +213,34 @@ export function Eventdetails({ tab, name, address }) {
                 </div>
 
             </div>
+            <div className="fixed bottom-0 left-0 w-full bg-gray-800 bg-opacity-50 text-white z-50 flex justify-around items-center py-3">
+
+{/* Home Button */}
+<button className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
+  <FaHome className="text-xl" />
+  <span className="hidden md:inline">Home</span> {/* Show text on medium screens and larger */}
+</button>
+
+{/* Refresh Button */}
+<button className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
+  <FaSync className="text-xl" />
+  <span className="hidden md:inline">Refresh</span>
+</button>
+
+{/* Leaderboard Button */}
+<button className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
+  <FaTrophy className="text-xl" />
+  <span className="hidden md:inline">Leaderboard</span>
+</button>
+
+{/* Upload Button */}
+<button className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
+  <FaUpload className="text-xl" />
+  <span className="hidden md:inline">Upload</span>
+</button>
+
+</div>
+
         </>
     );
 }
