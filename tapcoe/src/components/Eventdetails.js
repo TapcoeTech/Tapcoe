@@ -216,30 +216,31 @@ export function Eventdetails({ tab, name, address }) {
             <div className="fixed bottom-0 left-0 w-full bg-gray-800 bg-opacity-50 text-white z-50 flex justify-around items-center py-3">
 
 {/* Home Button */}
-<button className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
+<button className="p-2 flex flex-col items-center bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer" onClick={()=>{navigate("/")}}>
   <FaHome className="text-xl" />
-  <span className="hidden md:inline">Home</span> {/* Show text on medium screens and larger */}
+  <span className="inline">Home</span> {/* Always show text */}
 </button>
 
 {/* Refresh Button */}
-<button className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
+<button className="p-2 flex flex-col items-center bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer" onClick={()=>{window.location.reload();}}>
   <FaSync className="text-xl" />
-  <span className="hidden md:inline">Refresh</span>
+  <span className="inline">Refresh</span> {/* Always show text */}
 </button>
 
 {/* Leaderboard Button */}
-<button className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
+<button className="p-2 flex flex-col items-center bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
   <FaTrophy className="text-xl" />
-  <span className="hidden md:inline">Leaderboard</span>
+  <span className="inline">Leaderboard</span> {/* Always show text */}
 </button>
 
 {/* Upload Button */}
-<button className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
+<button className="p-2 flex flex-col items-center bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
   <FaUpload className="text-xl" />
-  <span className="hidden md:inline">Upload</span>
+  <span className="inline">Upload</span> {/* Always show text */}
 </button>
 
 </div>
+
 
         </>
     );
