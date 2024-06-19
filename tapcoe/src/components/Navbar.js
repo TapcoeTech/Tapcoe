@@ -135,8 +135,9 @@ function Navbar({ handleMenuState }) {
                     setShowLogout(false); 
                     Cookies.remove('token');
                     localStorage.clear();
-                    navigate("/")
+                   
                     window.location.reload();// Hide logout button after logout
+                    navigate("/")
                 }}
                 className="absolute right-0 mt-12 bg-red-500 p-2 px-4 rounded-sm text-white hidden group-hover:block"
             >
