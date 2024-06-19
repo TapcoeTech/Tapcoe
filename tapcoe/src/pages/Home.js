@@ -25,30 +25,26 @@ const Home = ({isMenu,handlechange,events}) => {
     const profilePicParam = searchParams.get('profilePic');
 
     if (tokenParam) {
-      setToken(tokenParam);
-      Cookies.set('token', tokenParam, { expires: 7 });
+        setToken(tokenParam);
+        Cookies.set('token', tokenParam, { expires: 7 }); 
     }
     if (emailParam) {
-      setEmail(emailParam);
-      localStorage.setItem("email", emailParam);
+        setEmail(emailParam);
+        localStorage.setItem("email",emailParam)
     }
     if (nameParam) {
-      setName(nameParam);
-      localStorage.setItem("name", nameParam);
+        setName(nameParam);
+        localStorage.setItem("name",nameParam)
     }
     if (profilePicParam) {
-      setProfilePic(profilePicParam);
-      localStorage.setItem("profileImg", profilePicParam);
+        setProfilePic(profilePicParam);
+        localStorage.setItem("profileImg",profilePicParam)
     }
 
-    // Check if the page has been reloaded already
-    const hasReloaded = sessionStorage.getItem('hasReloaded');
 
-    if (!hasReloaded) {
-      sessionStorage.setItem('hasReloaded', 'true');
-      window.location.reload();
-    }
-  }, [location.search]);
+  
+    
+}, [location.search]);
  
 
     return (

@@ -128,7 +128,7 @@ function Navbar({ handleMenuState }) {
                 alt="Profile"
                 className="rounded-full h-10 w-10"
             />
-            <p className="text-white">{email}</p>
+            <p className="text-white">{name}</p>
             <button
                  onClick={() => {
                     // Implement logout functionality here
@@ -209,7 +209,7 @@ function Navbar({ handleMenuState }) {
                     />
                 </div>
                 <div>
-                    <p className="loginButton">{email}</p>
+                    <p className="loginButton">{name}</p>
                 </div>
             </div>
             {/* Logout button */}
