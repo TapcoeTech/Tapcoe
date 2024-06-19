@@ -3,6 +3,7 @@ import SunEditor from 'suneditor-react';
 import 'suneditor/dist/css/suneditor.min.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cookies from 'js-cookie';
 function Eventhost() {
 
 
@@ -44,6 +45,7 @@ function Eventhost() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    token:Cookies.get('token')
                 },
                 body: JSON.stringify(formData),
             });
