@@ -43,7 +43,7 @@ const Home = ({isMenu,handlechange,events}) => {
     navigate("/");
   
     
-}, [location.search]);
+}, []);
  
 
     return (
