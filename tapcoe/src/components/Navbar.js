@@ -40,7 +40,7 @@ function Navbar({ handleMenuState }) {
         } else {
             setIsLoggedIn(false);
         }
-    }, []);
+    }, [Cookies.get('token')]);
 
     const menuItems = [
         {
