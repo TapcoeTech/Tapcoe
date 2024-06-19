@@ -196,7 +196,7 @@ function Navbar({ handleMenuState }) {
                     ))}
                 </div>
                 <hr />
-                {true ? <div className="relative flex flex-col items-left ml-4 ">
+                {true ? <div className="relative flex flex-col items-left ml- mt-2 ">
             <div
                 className="flex flex-row gap-2 items-center"
                 onClick={toggleLogout} // Toggle logout button on div click
