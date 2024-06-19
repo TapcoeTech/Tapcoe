@@ -40,8 +40,8 @@ const Home = ({isMenu,handlechange,events}) => {
         setProfilePic(profilePicParam);
         localStorage.setItem("profileImg",profilePicParam)
     }
-   navigate("/")
-   window.location.reload()
+
+  
   
     
 }, [location.search]);
