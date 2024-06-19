@@ -21,9 +21,9 @@ function Navbar({ handleMenuState }) {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-const [token,setToken]=useState(Cookies.get('token'))
+
     useEffect(() => {
-        
+        const token = Cookies.get('token');
 
         if (token) {
             setIsLoggedIn(true);
@@ -40,7 +40,8 @@ const [token,setToken]=useState(Cookies.get('token'))
         } else {
             setIsLoggedIn(false);
         }
-    }, []);
+        window.location.reload();
+    }, [Cookies.get('token')]);
 
     const menuItems = [
         {
