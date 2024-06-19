@@ -7,7 +7,7 @@ import '../App.css'
 import { Footer } from "../components/footer"
 import { FaCalendarPlus, FaCalendarCheck, FaUpload } from 'react-icons/fa';
 import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Cookies from "js-cookie"
 const Home = ({isMenu,handlechange,events}) => {
  console.log(isMenu,"isMenu",events)
@@ -16,6 +16,7 @@ const Home = ({isMenu,handlechange,events}) => {
  const [email, setEmail] = useState('');
  const [name, setName] = useState('');
  const [profilePic, setProfilePic] = useState('');
+ const navigate=useNavigate();
  useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const tokenParam = searchParams.get('token');
@@ -39,6 +40,8 @@ const Home = ({isMenu,handlechange,events}) => {
         setProfilePic(profilePicParam);
         localStorage.setItem("profileImg",profilePicParam)
     }
+    navigate("/");
+    
 }, [location.search]);
  
 
