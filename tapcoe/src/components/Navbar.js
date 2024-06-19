@@ -36,9 +36,7 @@ function Navbar({ handleMenuState }) {
             setName(storedName);
             setEmail(storedEmail);
 
-            console.log('Profile Img:', storedProfileImg);
-            console.log('Name:', storedName);
-            console.log('Email:', storedEmail);
+           navigate("/")
         } else {
             setIsLoggedIn(false);
         }
@@ -95,20 +93,68 @@ function Navbar({ handleMenuState }) {
 
 
 
-                {isLoggedIn ? <div className="hidden md:flex gap-2 items-center ml-4 mt-3 justify-end">
-                    <div>
-                        <img
-                            src={profileImg}
-                            alt="Profile"
-                            className="rounded-full h-10 w-10"
-                        />
-                    </div>
-                    <div>
-                        <p className="text-white ">{email}</p>
-                    </div>
-                </div> : <div className="ml-[100px] mt-4">
-                   <a href="https://tapcoe-backend.onrender.com/api/v1/auth/google"> <button className="sm:block hidden bg-blue-500 p-2 px-6 rounded-sm text-white">Login with google</button></a>
-                </div>}
+             {/* {isLoggedIn ? (
+    <div className="relative ml-4 mt-3 flex items-center gap-2">
+        <div className="group flex gap-2 items-center">
+            <img
+                src={profileImg}
+                alt="Profile"
+                className="rounded-full h-10 w-10"
+            />
+            <p className="text-white">{email}</p>
+            <button
+                onClick={handleLogout}
+                className="absolute right-0 mt-12 bg-red-500 p-2 px-4 rounded-sm text-white hidden group-hover:block"
+            >
+                Logout
+            </button>
+        </div>
+    </div>
+) : (
+    <div className="ml-[100px] mt-4">
+        <a href="https://tapcoe-backend.onrender.com/api/v1/auth/google">
+            <button className="sm:block hidden bg-blue-500 p-2 px-6 rounded-sm text-white">
+                Login with Google
+            </button>
+        </a>
+    </div>
+)} */}
+{isLoggedIn ? (
+    <div className="relative ml-4 mt-3 flex items-center gap-2">
+        <div className="group flex gap-2 items-center">
+            <img
+                src={profileImg}
+                alt="Profile"
+                className="rounded-full h-10 w-10"
+            />
+            <p className="text-white">{email}</p>
+            <button
+                 onClick={() => {
+                    // Implement logout functionality here
+                   
+                    setShowLogout(false); 
+                    Cookies.remove('token');
+                    localStorage.clear();
+                    navigate("/")
+                    window.location.reload();// Hide logout button after logout
+                }}
+                className="absolute right-0 mt-12 bg-red-500 p-2 px-4 rounded-sm text-white hidden group-hover:block"
+            >
+                Logout
+            </button>
+        </div>
+    </div>
+) : (
+    <div className="ml-[100px] mt-4">
+        <a href="https://tapcoe-backend.onrender.com/api/v1/auth/google">
+            <button className="sm:block hidden bg-blue-500 p-2 px-6 rounded-sm text-white">
+                Login with Google
+            </button>
+        </a>
+    </div>
+)}
+
+
 
 
                 <div className="">
@@ -181,7 +227,7 @@ function Navbar({ handleMenuState }) {
                     Logout
                 </button>
             </div>
-        </div>:<a href="https://tapcoe-backend.onrender.com/api/v1/auth/google"> <button className=" mt-4 bg-blue-500 p-2 px-6 rounded-sm" >Login with googleee</button> </a>}
+        </div>:<a href="https://tapcoe-backend.onrender.com/api/v1/auth/google"> <button className=" mt-4 bg-blue-500 p-2 px-6 rounded-sm" >Login with google</button> </a>}
 
 
             </div>
