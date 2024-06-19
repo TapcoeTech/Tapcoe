@@ -119,7 +119,7 @@ const [token,setToken]=useState(Cookies.get('token'))
         </a>
     </div>
 )} */}
-{isLoggedIn ? (
+{Cookies.get('token') ? (
     <div className="relative ml-4 mt-3 flex items-center gap-2">
         <div className="group flex gap-2 items-center">
             <img
