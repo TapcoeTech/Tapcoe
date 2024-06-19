@@ -121,7 +121,7 @@ function Navbar({ handleMenuState }) {
     </div>
 )} */}
 {isLoggedIn ? (
-    <div className="relative ml-4 mt-3 flex items-center gap-2">
+    <div className="relative ml-4 mt-3 flex items-center gap-2 md:block hidden">
         <div className="group flex gap-2 items-center">
             <img
                 src={profileImg}
