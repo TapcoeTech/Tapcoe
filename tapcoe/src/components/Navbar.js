@@ -36,7 +36,7 @@ function Navbar({ handleMenuState }) {
             setName(storedName);
             setEmail(storedEmail);
 
-          
+         
         } else {
             setIsLoggedIn(false);
         }
