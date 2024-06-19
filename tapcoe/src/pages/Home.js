@@ -27,6 +27,8 @@ const Home = ({isMenu,handlechange,events}) => {
     if (tokenParam) {
         setToken(tokenParam);
         Cookies.set('token', tokenParam, { expires: 7 }); 
+       
+
     }
     if (emailParam) {
         setEmail(emailParam);
@@ -40,6 +42,8 @@ const Home = ({isMenu,handlechange,events}) => {
         setProfilePic(profilePicParam);
         localStorage.setItem("profileImg",profilePicParam)
     }
+
+    navigate("/");
 
 
   
