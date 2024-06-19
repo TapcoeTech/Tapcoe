@@ -40,10 +40,10 @@ const Home = ({isMenu,handlechange,events}) => {
         setProfilePic(profilePicParam);
         localStorage.setItem("profileImg",profilePicParam)
     }
-    navigate("/");
+   navigate("/Eventdetails");
   
     
-}, []);
+}, [location.search]);
  
 
     return (
