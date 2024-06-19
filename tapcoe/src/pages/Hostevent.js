@@ -18,8 +18,8 @@ function Eventhost() {
 
     // Fetch values from local storage and set them in the state
     useEffect(() => {
-        const storedName = 'saurabh mishra';
-        const storedEmail = 'mishrasau91@gmail.com';
+        const storedName = localStorage.getItem('name');
+        const storedEmail = localStorage.getItem('email');
 
         setFormData((prevData) => ({
             ...prevData,
@@ -41,7 +41,7 @@ function Eventhost() {
         console.log(formData);
 
         try {
-            const response = await fetch('http://localhost:4000/api/v1/saveEventReq', {
+            const response = await fetch('https://tapcoe-backend.onrender.com/api/v1/saveEventReq', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
