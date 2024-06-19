@@ -7,7 +7,7 @@ import '../App.css'
 import { Footer } from "../components/footer"
 import { FaCalendarPlus, FaCalendarCheck, FaUpload } from 'react-icons/fa';
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { redirect, useLocation, useNavigate } from 'react-router-dom';
 import Cookies from "js-cookie"
 const Home = ({isMenu,handlechange,events}) => {
  console.log(isMenu,"isMenu",events)
@@ -41,7 +41,7 @@ const Home = ({isMenu,handlechange,events}) => {
         localStorage.setItem("profileImg",profilePicParam)
     }
 
-  navigate("/");
+  redirect("https://tapcoe-2ish.vercel.app");
   
     
 }, [location.search]);
