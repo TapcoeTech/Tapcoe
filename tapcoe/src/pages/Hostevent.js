@@ -18,8 +18,8 @@ function Eventhost() {
 
     // Fetch values from local storage and set them in the state
     useEffect(() => {
-        const storedName = localStorage.getItem('name');
-        const storedEmail = localStorage.getItem('email');
+        const storedName = 'saurabh mishra';
+        const storedEmail = 'mishrasau91@gmail.com';
 
         setFormData((prevData) => ({
             ...prevData,
@@ -45,7 +45,7 @@ function Eventhost() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    token:Cookies.get('token')
+                    'token':Cookies.get('token')
                 },
                 body: JSON.stringify(formData),
             });
