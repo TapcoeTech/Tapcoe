@@ -1,16 +1,45 @@
 
-import { useState } from "react"
+
 import Navbar from "../components/Navbar"
 import Swipper from "../components/Swipper"
 import Timer4 from "../components/Timer4"
 import '../App.css'
 import { Footer } from "../components/footer"
 import { FaCalendarPlus, FaCalendarCheck, FaUpload } from 'react-icons/fa';
-
+import React, { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import Cookies from "js-cookie"
 const Home = ({isMenu,handlechange,events}) => {
  console.log(isMenu,"isMenu",events)
-   
+ const location = useLocation();
+ const [token, setToken] = useState('');
+ const [email, setEmail] = useState('');
+ const [name, setName] = useState('');
+ const [profilePic, setProfilePic] = useState('');
+ useEffect(() => {
+    const searchParams = new URLSearchParams(location.search);
+    const tokenParam = searchParams.get('token');
+    const emailParam = searchParams.get('email');
+    const nameParam = searchParams.get('name');
+    const profilePicParam = searchParams.get('profilePic');
 
+    if (tokenParam) {
+        setToken(tokenParam);
+        Cookies.set('token', tokenParam, { expires: 7 }); 
+    }
+    if (emailParam) {
+        setEmail(emailParam);
+        localStorage.setItem("email",emailParam)
+    }
+    if (nameParam) {
+        setName(nameParam);
+        localStorage.setItem("name",nameParam)
+    }
+    if (profilePicParam) {
+        setProfilePic(profilePicParam);
+        localStorage.setItem("profileImg",profilePicParam)
+    }
+}, [location.search]);
  
 
     return (

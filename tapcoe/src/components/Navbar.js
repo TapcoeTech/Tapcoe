@@ -1,36 +1,73 @@
 import { useEffect, useState } from "react";
 import './Navbar.css';
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
-function Navbar({handleMenuState}) {
+function Navbar({ handleMenuState }) {
 
     const [isMenu, setIsMenu] = useState(false);
     const [active, setActive] = useState('')
-const navigate=useNavigate();
+    const [showLogout, setShowLogout] = useState(false);
+    const navigate = useNavigate();
+    // Function to handle toggle of logout button visibility
+    const toggleLogout = () => {
+        setShowLogout(!showLogout);
+        console.log(Cookies.get('token'),"ggggggg")
+
+    
+    };
+
+    const [profileImg, setProfileImg] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const token = Cookies.get('token');
+
+        if (token) {
+            setIsLoggedIn(true);
+
+            const storedProfileImg = localStorage.getItem('profileImg');
+            const storedName = localStorage.getItem('name');
+            const storedEmail = localStorage.getItem('email');
+
+            setProfileImg(storedProfileImg);
+            setName(storedName);
+            setEmail(storedEmail);
+
+            console.log('Profile Img:', storedProfileImg);
+            console.log('Name:', storedName);
+            console.log('Email:', storedEmail);
+        } else {
+            setIsLoggedIn(false);
+        }
+    }, []);
+
     const menuItems = [
         {
             title: "Home",
-            redirecturl:"/"
+            redirecturl: "/"
         },
         {
             title: "About Us",
-            redirecturl:"/Aboutus"
+            redirecturl: "/Aboutus"
         },
         {
             title: "Host An Event ",
-            redirecturl:"/hostEvent"
+            redirecturl: "/hostEvent"
         },
         {
             title: "Campus Ambassadors",
-            redirecturl:"/Campusambassadors"
+            redirecturl: "/Campusambassadors"
         },
         {
             title: "Advertise with us",
-            redirecturl:"Advertisewithus"
+            redirecturl: "Advertisewithus"
         },
         {
             title: "Winners",
-            redirecturl:""
+            redirecturl: ""
         }
 
     ];
@@ -48,21 +85,36 @@ const navigate=useNavigate();
                 <div className="flex gap-10 ">
                     {menuItems?.map((val, i) => {
                         return (
-                            <div key={i} onClick={() => {setActive(val.title); navigate(val.redirecturl)}} className={`sm:block hidden mt-1 cursor-pointer flex text-white uppercase ${active === val.title ? "text-sky-400 underline" : 'text-yellow-400'}  text-[13px]`}>{val.title}</div>
+                            <div key={i} onClick={() => { setActive(val.title); navigate(val.redirecturl) }} className={`sm:block hidden mt-1 cursor-pointer flex text-white uppercase ${active === val.title ? "text-sky-400 underline" : 'text-yellow-400'}  text-[13px]`}>{val.title}</div>
                         )
                     })}
                 </div>
             </div>
 
             <div>
-                <div className="ml-[100px] mt-4">
-                    <button className="sm:block hidden bg-blue-500 p-2 px-6 rounded-sm text-white">Login with google</button>
-                </div>
+
+
+
+                {isLoggedIn ? <div className="hidden md:flex gap-2 items-center ml-4 mt-3 justify-end">
+                    <div>
+                        <img
+                            src={profileImg}
+                            alt="Profile"
+                            className="rounded-full h-10 w-10"
+                        />
+                    </div>
+                    <div>
+                        <p className="text-white ">{email}</p>
+                    </div>
+                </div> : <div className="ml-[100px] mt-4">
+                   <a href="https://tapcoe-backend.onrender.com/api/v1/auth/google"> <button className="sm:block hidden bg-blue-500 p-2 px-6 rounded-sm text-white">Login with google</button></a>
+                </div>}
+
 
                 <div className="">
                     <button
                         className="menu-bar"
-                        onClick={() => {setIsMenu(true) ;handleMenuState()}}
+                        onClick={() => { setIsMenu(true); handleMenuState() }}
                     >
                         <div className="ml-[200px] -mt-[30px] text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -78,7 +130,7 @@ const navigate=useNavigate();
                     <div>
                         <img src="https://tapcoe.com/source/assets/img/taplg.png" alt="loading..." />
                     </div>
-                    <div onClick={() => {setIsMenu(false);handleMenuState() }}>
+                    <div onClick={() => { setIsMenu(false); handleMenuState() }}>
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -96,7 +148,41 @@ const navigate=useNavigate();
                     ))}
                 </div>
                 <hr />
-                <button className=" mt-4 bg-blue-500 p-2 px-6 rounded-sm">Login with google</button>
+                {isLoggedIn ? <div className="relative flex flex-col items-center ml-4">
+            <div
+                className="flex flex-row gap-2 items-center"
+                onClick={toggleLogout} // Toggle logout button on div click
+            >
+                <div>
+                    <img
+                        src={profileImg}
+                        alt="Profile"
+                        className="rounded-full h-10 w-10"
+                    />
+                </div>
+                <div>
+                    <p className="loginButton">{email}</p>
+                </div>
+            </div>
+            {/* Logout button */}
+            <div className={`mt-2 ${showLogout ? 'block' : 'hidden'}`}>
+                <button
+                    onClick={() => {
+                        // Implement logout functionality here
+                       
+                        setShowLogout(false); 
+                        Cookies.remove('token');
+                        localStorage.clear();
+                        navigate("/")
+                        window.location.reload();// Hide logout button after logout
+                    }}
+                    className="bg-red-500 p-2 text-white rounded-sm hover:bg-red-600"
+                >
+                    Logout
+                </button>
+            </div>
+        </div>:<a href="https://tapcoe-backend.onrender.com/api/v1/auth/google"> <button className=" mt-4 bg-blue-500 p-2 px-6 rounded-sm" >Login with googleee</button> </a>}
+
 
             </div>
         </div>
