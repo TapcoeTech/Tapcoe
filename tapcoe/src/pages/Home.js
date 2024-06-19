@@ -40,8 +40,7 @@ const Home = ({isMenu,handlechange,events}) => {
         setProfilePic(profilePicParam);
         localStorage.setItem("profileImg",profilePicParam)
     }
-
-  redirect("https://tapcoe-2ish.vercel.app");
+    navigate('https://tapcoe-2ish.vercel.app');
   
     
 }, [location.search]);
