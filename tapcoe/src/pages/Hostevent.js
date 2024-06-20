@@ -64,8 +64,8 @@ function Eventhost() {
                 toast.success("Request received successfully.");
             } else {
                 // Handle error
-                console.error("Failed to submit form");
-                toast.error("Failed to submit form.");
+              
+                toast.error("Please login to access this resource");
             }
         } catch (error) {
             console.error("Error:", error);
