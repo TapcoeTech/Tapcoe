@@ -48,7 +48,7 @@ function Eventhost() {
         console.log(formData);
 
         try {
-            const response = await fetch('https://tapcoe-backend.onrender.com/api/v1/saveEventReq', {
+            const response = await fetch('https://tapcoe-backend.onrender.com/api/v1/hostEvent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
