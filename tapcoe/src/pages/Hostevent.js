@@ -13,7 +13,8 @@ function Eventhost() {
         phone: '',
         company: '',
         designation: '',
-        event: '',
+        eventType: '',
+        description:''
     });
 
     // Fetch values from local storage and set them in the state
@@ -35,6 +36,12 @@ function Eventhost() {
             [name]: value,
         }));
     };
+    const handleEditorChange = (content) => {
+        setFormData((prevData) => ({
+            ...prevData,
+            description: content,
+        }));
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -45,7 +52,7 @@ function Eventhost() {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'token':Cookies.get('token')
+                    'token': Cookies.get('token')
                 },
                 body: JSON.stringify(formData),
             });
@@ -54,14 +61,15 @@ function Eventhost() {
                 const result = await response.json();
                 // Handle success
                 console.log(result);
-                alert("Request received successfully.");
+                toast.success("Request received successfully.");
             } else {
                 // Handle error
                 console.error("Failed to submit form");
-                alert("Failed to submit form.");
+                toast.error("Failed to submit form.");
             }
         } catch (error) {
             console.error("Error:", error);
+            toast.error("An error occurred while submitting the form.");
         }
     };
 
@@ -190,7 +198,7 @@ function Eventhost() {
                 <div className="relative z-0 w-full mb-5 group">
                     <input
                         type="text"
-                        name="event"
+                        name="eventType"
                         id="floating_event"
                         value={formData.event}
                         onChange={handleChange}
@@ -207,17 +215,19 @@ function Eventhost() {
                 </div>
             </div>
             <div className="relative z-0 w-full mb-5 group">
-                <SunEditor
-                    height='150px'
-                    setOptions={{
-                        buttonList: [
-                            ["bold", "italic", "underline", "hiliteColor"],
-                            ["list"],
-                            ["link"],
-                        ],
-                    }}
-                    spellCheck={true}
-                />
+            <SunEditor 
+                                    name="description"
+                                    id="description"
+                                    onChange={handleEditorChange} 
+                                    setContents={formData.description} 
+                                    setOptions={{
+                                        buttonList: [
+                                            ['bold', 'italic', 'underline', 'strike'],
+                                            ['list', 'link', 'image', 'video']
+                                        ]
+                                    }}
+                                    height="200px"
+                                />
             </div>
             <button
                 type="submit"
