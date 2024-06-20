@@ -77,6 +77,7 @@ function Eventhost() {
 
     return (
         <div>
+             
             <h1 className="flex justify-center mt-5 text-[22px]">HOST AN EVENT</h1>
             <div className="p-10 flex justify-center items-center">
                 <div className="bg-white p-4 rounded-md">

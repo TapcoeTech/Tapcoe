@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Eventhost from './pages/Hostevent';
 import { Eventdetails } from './components/Eventdetails';
 import Navbar from './components/Navbar';
@@ -63,6 +65,18 @@ const handlechange=(date, id,name,eventAddress )=> {
 ];
   return (
     <div className=''>
+         <ToastContainer 
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="colored"
+            />
       <Router>
       <Navbar handleMenuState={handleMenuState} />
         <Routes>
