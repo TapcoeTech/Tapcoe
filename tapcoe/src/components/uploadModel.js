@@ -62,7 +62,7 @@ const UploadModal = ({ isOpen, onRequestClose }) => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          eventName: selectedEvent,
+            eventName: selectedEvent,
           email: localStorage.getItem("email"), // Replace with actual email from state or props
           profileImgUrl: imageUrl,
           uuid: uuid, // Replace with actual uuid from state or props
