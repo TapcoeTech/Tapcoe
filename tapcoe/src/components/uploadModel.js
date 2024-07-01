@@ -51,7 +51,7 @@ const UploadModal = ({ isOpen, onRequestClose }) => {
   };
 
   const handleSave = async () => {
-    if (!selectedEvent || !file || !imageUrl) {
+    if (!selectedEvent  || !imageUrl) {
       return;
     }
 
