@@ -51,11 +51,9 @@ const UploadModal = ({ isOpen, onRequestClose }) => {
   };
 
   const handleSave = async () => {
-    if (!selectedEvent) {
-      return;
-    }
+  
 
-    setLoading(true);
+    // setLoading(true);
 
     try {
       const response = await fetch('https://tapcoe-backend.onrender.com/api/v1/addParticipant', {
