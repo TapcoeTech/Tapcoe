@@ -37,7 +37,7 @@ const UploadModal = ({ isOpen, onRequestClose }) => {
       }
 
       const data = await response.json();
-      setImageUrl(data.imageUrl);
+      setImageUrl(data.url);
       setUuid(data?.uuid) // Assuming your API returns the image URL
 
       // Optionally close the modal or perform other actions upon successful upload
