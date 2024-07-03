@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const UploadModal = ({ isOpen, onRequestClose }) => {
   const [selectedEvent, setSelectedEvent] = useState('');
@@ -75,9 +76,11 @@ const UploadModal = ({ isOpen, onRequestClose }) => {
 
       // Optionally handle success state or close modal
       console.log('Participant added successfully');
+      toast.success("Participant added successfully");
       // onRequestClose();
     } catch (error) {
       console.error('Error adding participant:', error);
+      toast.error(error);
       // Handle error state or display error message to the user
     } finally {
       setLoading(false);
