@@ -100,7 +100,7 @@ const UploadModal = ({ isOpen, onRequestClose }) => {
               onChange={handleEventChange}
             >
               <option value="">Select Event</option>
-              <option value="event1">Summer Tech Expo</option>
+              <option value="Summer Tech Expo">Summer Tech Expo</option>
               <option value="event2">Event 2</option>
               <option value="event3">Event 3</option>
               <option value="event4">Event 4</option>
