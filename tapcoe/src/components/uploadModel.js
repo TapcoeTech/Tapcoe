@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-
+import 'react-toastify/dist/ReactToastify.css';
 const UploadModal = ({ isOpen, onRequestClose }) => {
   const [selectedEvent, setSelectedEvent] = useState('');
   const [file, setFile] = useState(null);
