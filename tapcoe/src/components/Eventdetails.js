@@ -209,7 +209,7 @@ export function Eventdetails({ tab, name, address }) {
                                     <div className="border-l border-gray-400 h-[45px] self-stretch mt-2 ml-2"></div>
                                     <div className="flex flex-row p-3 ml-3 justify-center items-center gap-2">
                                         <img src="/images/ranking.png" className="w-6" alt="" />
-                                        <p className="text-[12px] font-montserrat text-[#004F4A]">Rank: {value?.rank}</p>
+                                        <p className="text-[12px] font-montserrat text-[#004F4A]">Rank: 1</p>
                                     </div>
                                 </div>
                                 <div><hr /></div>
