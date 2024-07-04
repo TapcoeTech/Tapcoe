@@ -146,7 +146,7 @@ console.log(events);
                   eventName={value?.eventName}
                   eventAddress={value?.eventAddress}
                   handlechange={handlechange}
-                  eventId={value?.eventId}
+                  eventId={value?._id}
                 />
               </div>
             );

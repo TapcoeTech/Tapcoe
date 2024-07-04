@@ -146,8 +146,9 @@ const Timer4 = ({ startTime, eventName, eventAddress, handlechange, eventId }) =
         <div className="flex justify-center mt-1 space-x-1">
           <button className="text-black-500 px-2 py-1 rounded-md text-md font-semibold">Winners</button>
           <button className="bg-yellow-400 px-2 py-1 rounded-md text-white text-md font-semibold" onClick={() => {
-            handlechange(eventId, startTime, eventName, eventAddress);
             localStorage.setItem("eventId",eventId);
+            handlechange(eventId, startTime, eventName, eventAddress);
+            
             navigate("/Eventdetails");
 
           }}>Open Event</button>

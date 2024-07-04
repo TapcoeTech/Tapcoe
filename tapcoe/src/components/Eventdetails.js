@@ -125,9 +125,7 @@ export function Eventdetails({ tab, name, address }) {
 
     const navigate = useNavigate();
 
-    const [participants, setParticipants] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+   
     const [event, setEvent] = useState(null);
     useEffect(() => {
         // Fetch eventId from localStorage
