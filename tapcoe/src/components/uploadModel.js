@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-const UploadModal = ({ isOpen, onRequestClose }) => {
+const UploadModal = ({ isOpen, onRequestClose,events }) => {
   const [selectedEvent, setSelectedEvent] = useState('');
   const [file, setFile] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
   const [uuid, setUuid] = useState('');
+  const [eventNames, setEventNames] = useState(events);
+
+  const [error, setError] = useState(null);
 
   const handleEventChange = (e) => {
     setSelectedEvent(e.target.value);
@@ -87,6 +90,9 @@ const UploadModal = ({ isOpen, onRequestClose }) => {
     }
   };
 
+
+
+
   return (
     <>
       {isOpen && (
@@ -103,11 +109,13 @@ const UploadModal = ({ isOpen, onRequestClose }) => {
               onChange={handleEventChange}
             >
               <option value="">Select Event</option>
-              <option value="Summer Tech Expo">Summer Tech Expo</option>
-              <option value="event2">Event 2</option>
+            {eventNames?.map((val,item,)=>{
+                return(  <option value={val?.eventName}>{val?.eventName}</option>)
+            })}
+              {/* <option value="event2">Event 2</option>
               <option value="event3">Event 3</option>
               <option value="event4">Event 4</option>
-              <option value="event5">Event 5</option>
+              <option value="event5">Event 5</option> */}
             </select>
             <input type="file" accept=".png" onChange={handleImageChange} className="mt-4" />
             {isLoading && (

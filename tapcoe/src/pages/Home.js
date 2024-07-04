@@ -10,8 +10,8 @@ import { FaCalendarPlus, FaCalendarCheck, FaUpload } from 'react-icons/fa';
 import UploadModal from '../components/uploadModel';
 import '../App.css';
 
-const Home = ({ isMenu, handlechange, events }) => {
-  console.log(isMenu, 'isMenu', events);
+const Home = ({ isMenu, handlechange }) => {
+
   const location = useLocation();
   const navigate = useNavigate();
   const [token, setToken] = useState('');
@@ -59,6 +59,32 @@ const Home = ({ isMenu, handlechange, events }) => {
     console.log('Event Name:', data.eventName);
     // Add your image upload logic here
   };
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+console.log(events);
+  useEffect(() => {
+      // Function to fetch events from the API
+      const fetchEvents = async () => {
+          try {
+              const response = await fetch('http://localhost:4000/api/v1/getallEvent'); // Adjust the API URL as needed
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              const data = await response.json();
+              setEvents(data); // Set the events in state
+              setLoading(false); // Set loading to false once data is fetched
+          } catch (error) {
+              setError(error);
+              setLoading(false);
+          }
+      };
+
+      fetchEvents();
+  }, []); // Empty dependency array to run the effect only once on mount
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
 
   return (
     <div>
@@ -116,7 +142,7 @@ const Home = ({ isMenu, handlechange, events }) => {
                 }}
               >
                 <Timer4
-                  startTime={value.startTime}
+                  startTime={value.startDate}
                   eventName={value?.eventName}
                   eventAddress={value?.eventAddress}
                   handlechange={handlechange}
@@ -185,7 +211,7 @@ const Home = ({ isMenu, handlechange, events }) => {
 
       <Footer />
 
-      <UploadModal isOpen={isModalOpen} onRequestClose={handleModalClose} onSave={handleSave} />
+      <UploadModal isOpen={isModalOpen} onRequestClose={handleModalClose} onSave={handleSave} events={events} />
     </div>
   );
 };
