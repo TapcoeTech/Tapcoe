@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Countdown from "./countDown";
 import { FaHome, FaSync, FaTrophy, FaUpload } from 'react-icons/fa';
+import { useEffect, useState } from "react";
 // export function Eventdetails({tab}) {
 //     return (<>
 // {console.log(tab,"llllllllllll")}
@@ -123,6 +124,36 @@ const eventDetails = {
 export function Eventdetails({ tab, name, address }) {
 
     const navigate = useNavigate();
+
+    const [participants, setParticipants] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchParticipants = async () => {
+            try {
+                const response = await fetch('http://localhost:4000/api/v1/getAllParticipants', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                setParticipants(data);
+                setLoading(false);
+            } catch (error) {
+                setError(error);
+                setLoading(false);
+            }
+        };
+
+        fetchParticipants();
+    }, []);
     return (
         <>
             {/* Content */}
@@ -164,16 +195,16 @@ export function Eventdetails({ tab, name, address }) {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center pl-4 pr-4 gap-2 mt-10">
-                    {eventDetails?.participates?.map((value, index) => (
+                    {participants?.map((value, index) => (
                         <div key={index}>
                             <div className="max-w-sm bg-white border border-gray-500 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
                                 <a href="#">
-                                    <img className="rounded-t-lg max-w-[330px] max-h-[300px] object-cover" src="/images/event.png" alt="" />
+                                    <img className="rounded-t-lg max-w-[330px] max-h-[300px] object-cover" src={value?.imageUrl} alt="" />
                                 </a>
                                 <div className="flex flex-row ml-4">
                                     <div className="flex p-3 justify-center items-center gap-2  border-gray-400">
                                         <img src="/images/pointer.png" alt="" />
-                                        <p className="text-[12px] font-montserrat text-[#004F4A]">Tap ID: {value?.tabID}</p>
+                                        <p className="text-[12px] font-montserrat text-[#004F4A]">Tap ID: {value?.userId}</p>
                                     </div>
                                     <div className="border-l border-gray-400 h-[45px] self-stretch mt-2 ml-2"></div>
                                     <div className="flex flex-row p-3 ml-3 justify-center items-center gap-2">
@@ -184,7 +215,7 @@ export function Eventdetails({ tab, name, address }) {
                                 <div><hr /></div>
                                 <div className="flex gap-4 justify-center items-center mt-2 py-2">
                                     <img src="./images/heart.png" />
-                                    <div>Total Tap: 62 </div>
+                                    <div>Total Tap: {value?.likes.length}</div>
 
                                 </div>
                             </div>
