@@ -128,15 +128,19 @@ export function Eventdetails({ tab, name, address }) {
     const [participants, setParticipants] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const [event, setEvent] = useState(null);
     useEffect(() => {
-        const fetchParticipants = async () => {
+        // Fetch eventId from localStorage
+        const eventId = localStorage.getItem('eventId');
+
+        const fetchEventDetails = async () => {
             try {
-                const response = await fetch('http://localhost:4000/api/v1/getAllParticipants', {
+                const response = await fetch(`https://tapcoe-backend.onrender.com/api/v1/events/${eventId}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
-                    }
+                    },
+                    body: JSON.stringify({ eventId:eventId })
                 });
 
                 if (!response.ok) {
@@ -144,7 +148,7 @@ export function Eventdetails({ tab, name, address }) {
                 }
 
                 const data = await response.json();
-                setParticipants(data);
+                setEvent(data);
                 setLoading(false);
             } catch (error) {
                 setError(error);
@@ -152,7 +156,11 @@ export function Eventdetails({ tab, name, address }) {
             }
         };
 
-        fetchParticipants();
+        if (eventId) {
+            fetchEventDetails();
+        } else {
+            setLoading(false);
+        }
     }, []);
     return (
         <>
@@ -164,7 +172,7 @@ export function Eventdetails({ tab, name, address }) {
                         <p className="font-semibold text-3xl">Event Details</p>
                         <div className="max-w-3xl text-center">
                             <p className="font-basic text-lg">
-                                {eventDetails?.eventDetails}
+                                {event?.description}
                             </p>
                         </div>
                     </div>
@@ -180,14 +188,14 @@ export function Eventdetails({ tab, name, address }) {
                             </div>
                             <div className="px-6 pt-4 pb-2">
                                 <div>
-                                    <p className="text-4xl font-semibold font-montserrat text-green-800">{name}</p>
+                                    <p className="text-4xl font-semibold font-montserrat text-green-800">{event?.eventName}</p>
 
-                                    <span className="font-normal font-montserrat text-green-800 text-base">{address}</span>
+                                    <span className="font-normal font-montserrat text-green-800 text-base">Gurgaon</span>
 
                                 </div>
                             </div>
                             <div className="px-6 py-4">
-                                <Countdown startTime={tab.startTime} />
+                                <Countdown startTime={event?.startDate} />
                             </div>
 
                         </div>
@@ -195,7 +203,7 @@ export function Eventdetails({ tab, name, address }) {
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center pl-4 pr-4 gap-2 mt-10">
-                    {participants?.map((value, index) => (
+                    {event?.participants?.map((value, index) => (
                         <div key={index}>
                             <div className="max-w-sm bg-white border border-gray-500 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
                                 <a href="#">
