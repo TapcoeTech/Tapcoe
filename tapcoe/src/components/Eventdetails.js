@@ -125,20 +125,21 @@ export function Eventdetails({ tab, name, address }) {
 
     const navigate = useNavigate();
 
-   
+   const [loading,setLoading]=useState(false)
     const [event, setEvent] = useState(null);
+    const [error,setError]=useState(null);
     useEffect(() => {
         // Fetch eventId from localStorage
         const eventId = localStorage.getItem('eventId');
 
         const fetchEventDetails = async () => {
             try {
-                const response = await fetch(`https://tapcoe-backend.onrender.com/api/v1/events/${eventId}`, {
-                    method: 'GET',
+                const response = await fetch(`https://tapcoe-backend.onrender.com/api/v1/getEventById`, {
+                    method: 'POST', // Change method to POST
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ eventId:eventId })
+                    body: JSON.stringify({ eventId }) // Pass eventId in the request body
                 });
 
                 if (!response.ok) {
@@ -159,7 +160,7 @@ export function Eventdetails({ tab, name, address }) {
         } else {
             setLoading(false);
         }
-    }, []);
+    }, []); 
     return (
         <>
             {/* Content */}
@@ -205,7 +206,7 @@ export function Eventdetails({ tab, name, address }) {
                         <div key={index}>
                             <div className="max-w-sm bg-white border border-gray-500 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
                                 <a href="#">
-                                    <img className="rounded-t-lg max-w-[330px] max-h-[300px] object-cover" src={value?.imageUrl} alt="" />
+                                    <img className="rounded-t-lg max-w-[330px] max-h-[300px] object-cover" src={value?.image?.imageUrl} alt="" />
                                 </a>
                                 <div className="flex flex-row ml-4">
                                     <div className="flex p-3 justify-center items-center gap-2  border-gray-400">
