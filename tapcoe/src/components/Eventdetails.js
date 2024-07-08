@@ -206,7 +206,7 @@ export function Eventdetails({ tab, name, address }) {
                         <div key={index}>
                             <div className="max-w-sm bg-white border border-gray-500 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
                                 <a href="#">
-                                    <img className="rounded-t-lg min-w-[330px] min-h-[300px] object-cover" src={value?.image?.imageUrl} alt="" />
+                                    <img className="rounded-t-lg w-[330px] h-[300px] object-cover" src={value?.image?.imageUrl} alt="" />
                                 </a>
                                 <div className="flex flex-row ml-4">
                                     <div className="flex p-3 justify-center items-center gap-2  border-gray-400">
