@@ -67,7 +67,7 @@ console.log(events);
       // Function to fetch events from the API
       const fetchEvents = async () => {
           try {
-              const response = await fetch('https://tapcoe-backend.onrender.com/api/v1/getEventById'); // Adjust the API URL as needed
+              const response = await fetch('https://tapcoe-backend.onrender.com/api/v1/getallEvent'); // Adjust the API URL as needed
               if (!response.ok) {
                   throw new Error('Network response was not ok');
               }
