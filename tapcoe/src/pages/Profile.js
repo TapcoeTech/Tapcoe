@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Countdown from "../components/countDown"
-
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 export const Profile = () => {
     const [participant, setParticipant] = useState(null);
     const [error, setError] = useState(null);
@@ -56,6 +57,7 @@ export const Profile = () => {
                 const result = await response.json();
                 // Handle success
                 console.log(result);
+                toast.success("You Liked this participant successfully!");
                 
             } else {
                 // Handle error
@@ -64,7 +66,7 @@ export const Profile = () => {
             }
         } catch (error) {
             console.error("Error:", error);
-            // toast.error("An error occurred while submitting the form.");
+            toast.error("error",error);
         }
     };
     return (
