@@ -147,6 +147,7 @@ export function Eventdetails({ tab, name, address }) {
                 }
 
                 const data = await response.json();
+                console.log(data,"this is my event data");
                 setEvent(data);
                 setLoading(false);
             } catch (error) {
@@ -230,7 +231,7 @@ export function Eventdetails({ tab, name, address }) {
                                 <div className="flex gap-4 mt-4">
                                     <button
                                         className="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200"
-                                        aria-label="Tap" onClick={() => { navigate("/Profile") }}
+                                        aria-label="Tap" onClick={() => { navigate("/Profile"); localStorage.setItem("paticipant_id",value?._id) }}
                                     >
                                         <img src="./images/heart.png" alt="Heart icon" className="mr-2" />
                                         <div>Tap</div>
