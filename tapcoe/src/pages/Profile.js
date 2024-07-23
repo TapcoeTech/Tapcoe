@@ -15,7 +15,7 @@ export const Profile = () => {
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                    body: JSON.stringify({ email:localStorage.getItem("email"), event_id:localStorage.getItem("eventId"), participant_id:localStorage.getItem("paticipant_id") }),
+                    body: JSON.stringify({ email:localStorage.getItem("email"), eventId:localStorage.getItem("eventId"), participantId:localStorage.getItem("paticipant_id") }),
                 });
 
                 if (!response.ok) {
