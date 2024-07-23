@@ -10,7 +10,7 @@ export const Profile = () => {
         const fetchParticipant = async () => {
             setLoading(true);
             try {
-                const response = await fetch('/getParticipantById', {
+                const response = await fetch('https://tapcoe-backend.onrender.com/api/v1/getParticipantById', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
