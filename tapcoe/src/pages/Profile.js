@@ -6,7 +6,7 @@ export const Profile = () => {
     const [participant, setParticipant] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-console.log(participant,"participant");
+console.log(participant,"participant",participant?.likes?.length);
     useEffect(() => {
         const fetchParticipant = async () => {
             setLoading(true);
