@@ -6,7 +6,7 @@ export const Profile = () => {
     const [participant, setParticipant] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-
+console.log(participant,"participant");
     useEffect(() => {
         const fetchParticipant = async () => {
             setLoading(true);
@@ -76,7 +76,7 @@ export const Profile = () => {
         <div class="max-w-sm bg-white rounded-3xl shadow dark:bg-gray-800 min-w-[400px] sm:min-w-auto flex flex-col mb-4">
             <div class="max-w-full">
                 <a href="#">
-                    <img class="rounded-t-lg min-w-[400px] min-h-[400px] w-full h-auto object-cover" src="/images/event.png" alt="Event" />
+                    <img class="rounded-t-lg min-w-[400px] min-h-[400px] w-full h-auto object-cover" src={participant?.participant?.image?.imageUrl} alt="Event" />
                 </a>
             </div>
     
