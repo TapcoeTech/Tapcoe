@@ -6,7 +6,7 @@ export const Profile = () => {
     const [participant, setParticipant] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-console.log(participant,"participant",participant?.likes?.length);
+
     useEffect(() => {
         const fetchParticipant = async () => {
             setLoading(true);
@@ -96,7 +96,7 @@ console.log(participant,"participant",participant?.likes?.length);
     
             <div class="flex gap-4 justify-center items-center mt-2 py-2">
                 <img src="./images/heart.png" alt="Heart" />
-                <div>Total Tap: {participant?.likes?.length}</div>
+                <div>Total Tap: {participant?.likesLength}</div>
             </div>
     
             <div class="flex flex-col gap-4 justify-center items-center pb-4">
@@ -107,7 +107,7 @@ console.log(participant,"participant",participant?.likes?.length);
                 </div>
                 <div class="flex flex-row gap-4 items-center justify-center">
                     <div>
-                        <p><strong>Uploaded</strong> By: Sakshi</p>
+                        <p><strong>Uploaded</strong> By: {participant?.user?.name}</p>
                     </div>
                     <div>
                         <p><strong>Uploaded Time</strong>: 11:50:36 20/04/24</p>
