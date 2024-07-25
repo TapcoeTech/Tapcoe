@@ -7,7 +7,7 @@ export const Profile = () => {
     const [participant, setParticipant] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-console.log(participant?.participant,participant,"participant.rank");
+console.log(participant?.rank,participant,"participant.rank");
     useEffect(() => {
         const fetchParticipant = async () => {
             setLoading(true);
@@ -96,9 +96,8 @@ console.log(participant?.participant,participant,"participant.rank");
             <div class="border-t border-gray-400 dark:border-gray-700 mx-4"></div>
     
             <div class="flex gap-4 justify-center items-center mt-2 py-2">
-
-                {participant?.participant?.likes.includes(localStorage.getItem('_id')) ?  <img src="./images/save.png" alt="Heart" /> : <img src="./images/heart.png" alt="Heart" /> }
-               
+                
+                <img src="./images/heart.png" alt="Heart" />
                 <div>Total Tap: {participant?.likesLength}</div>
             </div>
     
@@ -118,7 +117,9 @@ console.log(participant?.participant,participant,"participant.rank");
                 </div>
                 <div class="flex gap-4">
                     <button class="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200" aria-label="Tap" onClick={() => {handleSubmit()}}>
-                        <img src="./images/heart.png" alt="Heart icon" class="mr-2" />
+                      
+
+                        {participant?.participant?.likes.includes(localStorage.getItem('_id')) ?    <img src="./images/save.png" alt="Heart icon" class="mr-2" />:  <img src="./images/heart.png" alt="Heart icon" class="mr-2" /> }
                         <div>Tap</div>
                     </button>
                     <button class="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200" aria-label="Share">
