@@ -96,7 +96,7 @@ console.log(participant,"participant");
     
             <div class="flex gap-4 justify-center items-center mt-2 py-2">
                 <img src="./images/heart.png" alt="Heart" />
-                <div>Total Tap: 62</div>
+                <div>Total Tap: {participant?.likes?.length}</div>
             </div>
     
             <div class="flex flex-col gap-4 justify-center items-center pb-4">
