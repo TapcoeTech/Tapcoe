@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 export const LeaderBoard=()=>{
 
 
-const [participant,setParticipantData]=useEffect('');
+const [participant,setParticipantData]=useState();
 const [loading,setLoading]=useState('');
 const[error,setError]=useState('');
     useEffect(() => {
@@ -46,7 +46,7 @@ const[error,setError]=useState('');
 
     
 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center pl-4 pr-4 gap-2 mt-10">
-                    {participant?.map((value, index) => (
+                    {participant?.participants?.map((value, index) => (
                         <div key={index}>
                             <div className="max-w-sm bg-white border border-gray-500 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
                                 <a href="#">
