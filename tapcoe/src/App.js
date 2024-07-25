@@ -11,6 +11,7 @@ import { Profile } from './pages/Profile';
 import { About } from './pages/About';
 import { Campus } from './pages/Campus_ambassadors';
 import { Advertise } from './pages/Advertisewithus';
+import { LeaderBoard } from './pages/Leaderboard';
 
 
 function App() {
@@ -82,6 +83,7 @@ const handlechange=(date, id,name,eventAddress )=> {
         <Routes>
           <Route path="/" element={<Home  isMenu={isMenu} handlechange={handlechange} />} />
           <Route path="/hostEvent" element={<Eventhost  isMenu={isMenu}/>} />
+          <Route path="/leaderBoard" element={<LeaderBoard/>} />
           <Route path="/Eventdetails" element={<Eventdetails  isMenu={isMenu} tab={tab} name={tab.eventName} address={tab.eventAddress}/>} />
           <Route path="/Profile" element={<Profile/>} />
           <Route path="/Aboutus" element={<About/>} />

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Countdown from "../components/countDown"
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
+import Cookies from "js-cookie";
 export const Profile = () => {
     const [participant, setParticipant] = useState(null);
     const [error, setError] = useState(null);
