@@ -88,7 +88,7 @@ export const Profile = () => {
                 <div class="border-l border-gray-400 dark:border-gray-700 h-12 self-stretch mx-4"></div>
                 <div class="flex flex-row p-3 items-center gap-2">
                     <img src="/images/ranking.png" class="w-6" alt="Ranking" />
-                    <p class="text-[12px] font-montserrat text-[#004F4A]">Rank: 22</p>
+                    <p class="text-[12px] font-montserrat text-[#004F4A]">Rank: {participant?.rank}</p>
                 </div>
             </div>
     
