@@ -18,6 +18,7 @@ const Home = ({ isMenu, handlechange }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [profilePic, setProfilePic] = useState('');
+  const[_id,set_id]=useState();
   const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -25,6 +26,7 @@ const Home = ({ isMenu, handlechange }) => {
     const tokenParam = searchParams.get('token');
     const emailParam = searchParams.get('email');
     const nameParam = searchParams.get('name');
+    const _id = searchParams.get('_id');
     const profilePicParam = searchParams.get('profilePic');
 
     if (tokenParam) {
@@ -42,7 +44,14 @@ const Home = ({ isMenu, handlechange }) => {
     if (profilePicParam) {
       setProfilePic(profilePicParam);
       localStorage.setItem('profileImg', profilePicParam);
-      navigate('/');
+     
+    }
+    if(_id)
+    {
+set_id(_id);
+localStorage.setItem('_id',_id);
+console.log('_id',_id);
+navigate('/');
     }
   }, [location.search, navigate]);
 
