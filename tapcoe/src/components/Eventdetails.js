@@ -209,7 +209,7 @@ export function Eventdetails({ tab, name, address }) {
                                 <a href="#">
                                     <img className="rounded-t-lg w-[330px] h-[300px] object-cover" src={value?.image?.imageUrl} alt="" />
                                 </a>
-                                <div className="flex flex-row ml-4">
+                                <div className="flex flex-row ml-4 justify-center items-center">
                                     <div className="flex p-3 justify-center items-center gap-2  border-gray-400">
                                         <img src="/images/pointer.png" alt="" />
                                         <p className="text-[12px] font-montserrat text-[#004F4A]">Tap ID: {value?.userId}</p>
