@@ -48,7 +48,7 @@ console.log(participant?.rank,participant,"participant.rank");
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    // 'token': Cookies.get('token')
+                    'token': Cookies.get('token')
                 },
                 body: JSON.stringify(formData),
             });
