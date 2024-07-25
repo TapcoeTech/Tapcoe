@@ -119,7 +119,7 @@ console.log(participant?.rank,participant,"participant.rank");
                     <button class="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200" aria-label="Tap" onClick={() => {handleSubmit()}}>
                       
 
-                        {participant?.participant?.likes.includes(localStorage.getItem('_id')) ?    <img src="./images/save.png" alt="Heart icon" class="mr-2 h-8 w-8" />:  <img src="./images/heart.png" alt="Heart icon" class="mr-2" /> }
+                        {participant?.participant?.likes.includes(localStorage.getItem('_id')) ?    <img src="./images/save.png" alt="Heart icon" class="mr-2 h-5 w-5" />:  <img src="./images/heart.png" alt="Heart icon" class="mr-2" /> }
                         <div>Tap</div>
                     </button>
                     <button class="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200" aria-label="Share">
