@@ -7,7 +7,7 @@ export const Profile = () => {
     const [participant, setParticipant] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-console.log(participant?.rank,participant,"participant.rank");
+console.log(participant?.participant,participant,"participant.rank");
     useEffect(() => {
         const fetchParticipant = async () => {
             setLoading(true);
@@ -97,7 +97,7 @@ console.log(participant?.rank,participant,"participant.rank");
     
             <div class="flex gap-4 justify-center items-center mt-2 py-2">
 
-                {participant?.likes.includes(localStorage.getItem('_id')) ?  <img src="./images/save.png" alt="Heart" /> : <img src="./images/heart.png" alt="Heart" /> }
+                {participant?.participant?.likes.includes(localStorage.getItem('_id')) ?  <img src="./images/save.png" alt="Heart" /> : <img src="./images/heart.png" alt="Heart" /> }
                
                 <div>Total Tap: {participant?.likesLength}</div>
             </div>
