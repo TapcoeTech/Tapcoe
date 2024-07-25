@@ -96,7 +96,9 @@ console.log(participant?.rank,participant,"participant.rank");
             <div class="border-t border-gray-400 dark:border-gray-700 mx-4"></div>
     
             <div class="flex gap-4 justify-center items-center mt-2 py-2">
-                <img src="./images/heart.png" alt="Heart" />
+
+                {participant?.likes.includes(localStorage.getItem('_id')) ?  <img src="./images/save.png" alt="Heart" /> : <img src="./images/heart.png" alt="Heart" /> }
+               
                 <div>Total Tap: {participant?.likesLength}</div>
             </div>
     
