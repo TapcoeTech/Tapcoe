@@ -24,9 +24,9 @@ export default function Swipper() {
         modules={[Navigation, Pagination, Mousewheel, Keyboard]}
         className="mySwiper"
       >
-        <SwiperSlide><img src='https://tapcoe.com/source/assets/img/bn1.jpg'/></SwiperSlide>
-        <SwiperSlide><img src='https://tapcoe.com/source/assets/img/bn2.jpg'/></SwiperSlide>
-        <SwiperSlide><img src='	https://tapcoe.com/source/assets/img/bn3.jpg'/></SwiperSlide>
+        <SwiperSlide><img style={{height:"800px"}} src='./images/bn1.png'/></SwiperSlide>
+        <SwiperSlide><img style={{height:"800px"}}src='./images/bn2.png'/></SwiperSlide>
+        <SwiperSlide><img style={{height:"800px"}} src='./images/bn3.png'/></SwiperSlide>
       
       </Swiper>
     </>
