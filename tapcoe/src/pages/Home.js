@@ -9,6 +9,7 @@ import { Footer } from '../components/footer';
 import { FaCalendarPlus, FaCalendarCheck, FaUpload } from 'react-icons/fa';
 import UploadModal from '../components/uploadModel';
 import '../App.css';
+import Loader from '../components/Loader';
 
 const Home = ({ isMenu, handlechange }) => {
 
@@ -92,13 +93,16 @@ console.log(events);
       fetchEvents();
   }, []); // Empty dependency array to run the effect only once on mount
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <Loader/>;
   if (error) return <p>Error: {error.message}</p>;
 
   return (
+    
     <div>
      
-      <div className={`header ${isMenu ? 'opacity-25' : ''}`}>
+ 
+
+     <div className={`header ${isMenu ? 'opacity-25' : ''}`}>
         <Swipper />
 
         <div className="fixed bottom-0 left-0 w-full bg-gray-800 bg-opacity-50 text-white z-50 flex justify-center sm:justify-around items-center py-3">
