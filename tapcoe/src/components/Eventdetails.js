@@ -217,7 +217,7 @@ export function Eventdetails({ tab, name, address }) {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center pl-4 pr-4 gap-2 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center justify-center pl-4 pr-4 gap-2 mt-10" onClick={() => { navigate("/Profile"); localStorage.setItem("paticipant_id",value?._id) }}>
                 {event?.participants?.map((value, index) => (
                     <div key={index}>
                         <div className="max-w-sm bg-white border border-gray-500 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
