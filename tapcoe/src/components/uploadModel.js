@@ -109,9 +109,9 @@ const UploadModal = ({ isOpen, onRequestClose,events }) => {
               onChange={handleEventChange}
             >
               <option value="">Select Event</option>
-            {eventNames?.map((val,item,)=>{
+            { eventNames ? eventNames?.map((val,item,)=>{
                 return(  <option value={val?.eventName}>{val?.eventName}</option>)
-            })}
+            }) :<option value={localStorage.getItem("eventName")}>{localStorage.getItem("eventName")}</option>}
               {/* <option value="event2">Event 2</option>
               <option value="event3">Event 3</option>
               <option value="event4">Event 4</option>

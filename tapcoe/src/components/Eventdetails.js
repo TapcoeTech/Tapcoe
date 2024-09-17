@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Countdown from "./countDown";
 import { FaHome, FaSync, FaTrophy, FaUpload } from 'react-icons/fa';
 import { useEffect, useState } from "react";
+import UploadModal from '../components/uploadModel';
 // export function Eventdetails({tab}) {
 //     return (<>
 // {console.log(tab,"llllllllllll")}
@@ -128,6 +129,7 @@ export function Eventdetails({ tab, name, address }) {
    const [loading,setLoading]=useState(false)
     const [event, setEvent] = useState(null);
     const [error,setError]=useState(null);
+    const [isModalOpen, setModalOpen] = useState(false);
     useEffect(() => {
         // Fetch eventId from localStorage
         const eventId = localStorage.getItem('eventId');
@@ -162,6 +164,17 @@ export function Eventdetails({ tab, name, address }) {
             setLoading(false);
         }
     }, []); 
+    const handleUploadClick = () => {
+        setModalOpen(true);
+      };
+      const handleSave = (data) => {
+        console.log('Image:', data.image);
+        console.log('Event Name:', data.eventName);
+        // Add your image upload logic here
+      };
+      const handleModalClose = () => {
+        setModalOpen(false);
+      };
     return (
         <>
             {/* Content */}
@@ -273,14 +286,17 @@ export function Eventdetails({ tab, name, address }) {
 </button>
 
 {/* Upload Button */}
-<button className="p-2 flex flex-col items-center bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer">
-  <FaUpload className="text-xl" />
-  <span className="inline">Upload</span> {/* Always show text */}
-</button>
+<div
+            className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-gray-600 cursor-pointer mb-2 sm:mb-0 sm:ml-5"
+            onClick={handleUploadClick}
+          >
+            <FaUpload className="text-lg" />
+            <span className="ml-2">Upload</span>
+          </div>
 
 </div>
 
-
+<UploadModal isOpen={isModalOpen} onRequestClose={handleModalClose} onSave={handleSave} events={""} />
         </>
     );
 }
