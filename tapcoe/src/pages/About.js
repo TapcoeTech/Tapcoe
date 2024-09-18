@@ -45,7 +45,7 @@ export const About = () => {
                     <div class="flex items-left justify-left mt-3">
                         <h3 class="font-montserrat text-lg text-gray-900  ml-2">
                             How it Works?
-                        </h3>
+                        </h3> 
                     </div>
                     <p class="font-serif text-base text-gray-600 leading-normal tracking-wide ml-2 mt-2" style={{fontFamily:"Abhaya Libres, serif", color:'#898B8C'}}>
                         Our online voting platform makes the voting process simple and accessible to all users.
