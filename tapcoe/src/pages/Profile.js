@@ -3,12 +3,27 @@ import Countdown from "../components/countDown"
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
+import { useLocation, useNavigate } from 'react-router-dom';
 export const Profile = () => {
     const [participant, setParticipant] = useState(null);
+    
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 console.log(participant?.rank,participant,"participant.rank");
+const location = useLocation();
+const navigate = useNavigate();
+
     useEffect(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const participantId=searchParams.get('participantId');
+        const eventId=searchParams.get('eventId');
+
+      if(eventId && participantId){
+        localStorage.setItem('eventId',eventId);
+        localStorage.setItem('paticipant_id',participantId);
+      }
+
+      
         const fetchParticipant = async () => {
             setLoading(true);
             try {
@@ -62,7 +77,7 @@ console.log(participant?.rank,participant,"participant.rank");
                 
             } else {
                 // Handle error
-              
+              toast.error("Please login to like the participant !");
     
             }
         } catch (error) {

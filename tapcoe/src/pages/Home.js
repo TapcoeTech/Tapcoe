@@ -27,6 +27,7 @@ const Home = ({ isMenu, handlechange }) => {
     const tokenParam = searchParams.get('token');
     const emailParam = searchParams.get('email');
     const nameParam = searchParams.get('name');
+ 
     const _id = searchParams.get('_id');
     const profilePicParam = searchParams.get('profilePic');
 
@@ -47,6 +48,12 @@ const Home = ({ isMenu, handlechange }) => {
       localStorage.setItem('profileImg', profilePicParam);
      
     }
+
+    if(localStorage.getItem('eventId') && localStorage.getItem('paticipant_id'))
+    {
+      console.log(localStorage.getItem('eventId'),localStorage.getItem('paticipant_id'),"jjjjjjjjjjj" );
+      navigate('/profile');
+    }
     if(_id)
     {
 set_id(_id);
@@ -54,6 +61,8 @@ localStorage.setItem('_id',_id);
 console.log('_id',_id);
 navigate('/');
     }
+
+   
   }, [location.search, navigate]);
 
   const handleUploadClick = () => {
