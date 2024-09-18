@@ -78,7 +78,7 @@ export function Eventdetails({ tab, name, address }) {
         const shareUrl = `${window.location.origin}/profile?participantId=${participantId}&eventId=${eventId}`;
         setOpenShare(participantId);  // Track the clicked participant ID
         setShareUrl(shareUrl);  // Save the generated share URL to be used in ShareButtons
-    };
+    }; 
 
     return (
         <>
