@@ -21,7 +21,7 @@ const Home = ({ isMenu, handlechange }) => {
   const [profilePic, setProfilePic] = useState('');
   const[_id,set_id]=useState();
   const [isModalOpen, setModalOpen] = useState(false);
-  const [hasNavigated, setHasNavigated] = useState(false);
+
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const tokenParam = searchParams.get('token');
@@ -68,18 +68,20 @@ navigate('/');
   useEffect(() => {
     const eventId = localStorage.getItem('eventId');
     const participantId = localStorage.getItem('paticipant_id');
-    
-    // Check if the user should be redirected and if they haven't been redirected yet
+    const hasNavigated = localStorage.getItem('hasNavigated');
+
+    // Check if eventId and participantId exist and if the user hasn't been navigated yet
     if (eventId && participantId && !hasNavigated) {
       console.log(eventId, participantId, "Navigating to profile page");
       
+      // Set 'hasNavigated' in localStorage to prevent further navigation
+      localStorage.setItem("hasNavigated", "true");
+
       // Navigate to the profile page
       navigate('/profile');
-      
-      // Set the state to prevent further navigation
-      setHasNavigated(true);
     }
-  }, [navigate, hasNavigated]);
+}, [navigate]);
+
 
   const handleUploadClick = () => {
     setModalOpen(true);
