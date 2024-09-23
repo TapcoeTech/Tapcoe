@@ -119,9 +119,9 @@ export function Eventdetails({ tab, name, address }) {
   ?.slice()  // Make a shallow copy of the array to prevent modifying the original data
   .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))  // Sort by createdAt in descending order
   .map((value, index) => (
-    <div key={index}>
+    <div key={index}  onClick={() => { navigate("/Profile"); localStorage.setItem("paticipant_id", value?._id) }}>
       <div className="max-w-sm bg-white border border-gray-500 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
-        <a href="#" onClick={() => { navigate("/Profile"); localStorage.setItem("paticipant_id", value?._id) }}>
+        <a href="#">
           <img className="rounded-t-lg w-[330px] h-[300px] object-cover" src={value?.image?.imageUrl} alt="" />
         </a>
         <div className="flex flex-row ml-4 justify-center items-center">
@@ -141,7 +141,7 @@ export function Eventdetails({ tab, name, address }) {
           <div>Total Tap: {value?.likes.length}</div>
         </div>
 
-        <div className="flex justify-center items-center">
+        {/* <div className="flex justify-center items-center">
           <div className="flex gap-4 mt-4">
             <button
               className="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200"
@@ -158,7 +158,7 @@ export function Eventdetails({ tab, name, address }) {
               <div>Share</div>
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   ))}

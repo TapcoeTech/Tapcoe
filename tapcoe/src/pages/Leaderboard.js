@@ -72,7 +72,7 @@ const navigate=useNavigate();
 
                                 </div>
                             </div>
-                            <div className="flex justify-center items-center">
+                            {/* <div className="flex justify-center items-center">
                                 <div className="flex gap-4 mt-4">
                                     <button
                                         className="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200"
@@ -89,7 +89,7 @@ const navigate=useNavigate();
                                         <div>Share</div>
                                     </button>
                                 </div>
-                            </div>
+                            </div> */}
 
                         </div>
                     ))}
