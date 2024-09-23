@@ -121,9 +121,9 @@ export function Eventdetails({ tab, name, address }) {
   .map((value, index) => (
     <div key={index}  onClick={() => { navigate("/Profile"); localStorage.setItem("paticipant_id", value?._id) }}>
       <div className="max-w-sm bg-white border border-gray-500 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col">
-        <a href="#">
+    
           <img className="rounded-t-lg w-[330px] h-[300px] object-cover" src={value?.image?.imageUrl} alt="" />
-        </a>
+        
         <div className="flex flex-row ml-4 justify-center items-center">
           <div className="flex p-3 justify-center items-center gap-2 border-gray-400">
             <img src="/images/pointer.png" alt="" />
