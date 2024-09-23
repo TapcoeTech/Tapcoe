@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import Countdown from "./countDown";
 import UploadModal from '../components/uploadModel';
 import Loader from "./Loader";
-import ShareButtons from "./ShareButtons";
+
 
 const eventDetails = {
     eventDetails: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
@@ -27,8 +27,7 @@ export function Eventdetails({ tab, name, address }) {
     const [event, setEvent] = useState(null);
     const [error, setError] = useState(null);
     const [isModalOpen, setModalOpen] = useState(false);
-    const [openShare, setOpenShare] = useState(null); // Track open share for a specific participant
-    const [shareUrl, setShareUrl] = useState();
+ 
 
     useEffect(() => {
         const eventId = localStorage.getItem('eventId');
@@ -73,12 +72,12 @@ export function Eventdetails({ tab, name, address }) {
         setModalOpen(false);
     };
 
-    const handleShareClick = (participantId) => {
-        const eventId = localStorage.getItem('eventId'); // Assuming eventId is stored in localStorage
-        const shareUrl = `${window.location.origin}/profile?participantId=${participantId}&eventId=${eventId}`;
-        setOpenShare(participantId);  // Track the clicked participant ID
-        setShareUrl(shareUrl);  // Save the generated share URL to be used in ShareButtons
-    }; 
+    // const handleShareClick = (participantId) => {
+    //     const eventId = localStorage.getItem('eventId'); // Assuming eventId is stored in localStorage
+    //     const shareUrl = `${window.location.origin}/profile?participantId=${participantId}&eventId=${eventId}`;
+    //     setOpenShare(participantId);  // Track the clicked participant ID
+    //     setShareUrl(shareUrl);  // Save the generated share URL to be used in ShareButtons
+    // }; 
 
     return (
         <>
@@ -143,7 +142,8 @@ export function Eventdetails({ tab, name, address }) {
                                         <div className="flex gap-4 mt-4">
                                             <button
                                                 className="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200"
-                                                aria-label="Tap" onClick={() => { navigate("/Profile"); localStorage.setItem("paticipant_id", value?._id) }}
+                                                aria-label="Tap"
+                                                //  onClick={() => { navigate("/Profile"); localStorage.setItem("paticipant_id", value?._id) }}
                                             >
                                                 <img src="./images/heart.png" alt="Heart icon" className="mr-2" />
                                                 <div>Tap</div>
@@ -151,7 +151,7 @@ export function Eventdetails({ tab, name, address }) {
                                             <button
                                                 className="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200"
                                                 aria-label="Share"
-                                                onClick={() => handleShareClick(value?._id)}
+                                               
                                             >
                                                 <img src="./images/share.png" alt="Share icon" className="mr-2" />
                                                 <div>Share</div>
@@ -160,11 +160,7 @@ export function Eventdetails({ tab, name, address }) {
                                     </div>
                                 </div>
 
-                                {openShare === value?._id && shareUrl && (
-                                    <div className="flex justify-center mt-4">
-                                        <ShareButtons shareUrl={shareUrl} />
-                                    </div>
-                                )}
+                            
                             </div>
                         ))}
                     </div>

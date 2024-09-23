@@ -4,9 +4,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { useLocation, useNavigate } from 'react-router-dom';
+import ShareButtons from "./ShareButtons";
 export const Profile = () => {
     const [participant, setParticipant] = useState(null);
-    
+    const [openShare, setOpenShare] = useState(null); // Track open share for a specific participant
+    const [shareUrl, setShareUrl] = useState();
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
 console.log(participant?.rank,participant,"participant.rank");
@@ -85,6 +87,14 @@ const navigate = useNavigate();
             toast.error("error",error);
         }
     };
+
+    const handleShareClick = () => {
+        const eventId = localStorage.getItem('eventId');
+        const participantId=localStorage.getItem('paticipant_id') // Assuming eventId is stored in localStorage
+        const shareUrl = `${window.location.origin}/profile?participantId=${participantId}&eventId=${eventId}`;
+        setOpenShare(participantId);  // Track the clicked participant ID
+        setShareUrl(shareUrl);  // Save the generated share URL to be used in ShareButtons
+    };
     return (
         <div class="flex flex-col md:flex-row justify-center items-center md:gap-8 gap-4 p-4 mt-10">
 
@@ -137,11 +147,19 @@ const navigate = useNavigate();
                         {participant?.participant?.likes.includes(localStorage.getItem('_id')) ?    <img src="./images/save.png" alt="Heart icon" class="mr-2 h-5 w-5" />:  <img src="./images/heart.png" alt="Heart icon" class="mr-2" /> }
                         <div>Tap</div>
                     </button>
-                    <button class="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200" aria-label="Share">
+                    <button class="flex flex-row items-center bg-yellow-500 rounded-md px-4 py-2 hover:bg-yellow-600 active:bg-yellow-700 transition duration-200" aria-label="Share"
+                    
+                    onClick={() => handleShareClick()}
+                    >
                         <img src="./images/share.png" alt="Share icon" class="mr-2" />
                         <div>Share</div>
                     </button>
                 </div>
+                {openShare === value?._id && shareUrl && (
+                                    <div className="flex justify-center mt-4">
+                                        <ShareButtons shareUrl={shareUrl} />
+                                    </div>
+                                )}
             </div>
         </div>
     
