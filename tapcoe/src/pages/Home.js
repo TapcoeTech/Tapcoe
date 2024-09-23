@@ -49,11 +49,12 @@ const Home = ({ isMenu, handlechange }) => {
      
     }
 
-    if(localStorage.getItem('eventId') && localStorage.getItem('paticipant_id'))
-    {
-      console.log(localStorage.getItem('eventId'),localStorage.getItem('paticipant_id'),"jjjjjjjjjjj" );
-      navigate('/profile');
-    }
+    // if(localStorage.getItem('eventId') && localStorage.getItem('paticipant_id'))
+    // {
+    //   console.log(localStorage.getItem('eventId'),localStorage.getItem('paticipant_id'),"jjjjjjjjjjj" );
+
+    //   navigate('/profile');
+    // }
     if(_id)
     {
 set_id(_id);
@@ -64,6 +65,19 @@ navigate('/');
 
    
   }, [location.search, navigate]);
+
+  useEffect(() => {
+    // Check if both eventId and participant_id exist in localStorage
+    const eventId = localStorage.getItem('eventId');
+    const participantId = localStorage.getItem('paticipant_id');
+    
+    if (eventId && participantId) {
+      console.log(eventId, participantId, "Navigating to profile page");
+      
+      // Navigate to profile page only once when the component mounts
+      navigate('/profile');
+    }
+  }, [navigate]);
 
   const handleUploadClick = () => {
     setModalOpen(true);
