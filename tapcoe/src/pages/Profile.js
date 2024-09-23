@@ -60,8 +60,33 @@ const navigate = useNavigate();
         event_id: localStorage.getItem("eventId"),
         participant_id:localStorage.getItem("paticipant_id")
      }
-
+   
         try {
+
+            if(!participant?.participant?.likes.includes(localStorage.getItem('_id'))){
+                const unLikeresponse = await fetch('https://tapcoe-backend.onrender.com/api/v1/unLikeEvent', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'token': Cookies.get('token')
+                    },
+                    body: JSON.stringify(formData),
+                });
+
+                if (unLikeresponse.ok) {
+                    const result = await unLikeresponse.json();
+                    // Handle success
+                    console.log(result);
+                    toast.success("You UnLiked this participant successfully!");
+                    
+                } else {
+                    // Handle error
+                  toast.error("Please login to like the participant !");
+        
+                }
+            }
+
+         else{
             const response = await fetch('https://tapcoe-backend.onrender.com/api/v1/likeEvent', {
                 method: 'POST',
                 headers: {
@@ -82,6 +107,7 @@ const navigate = useNavigate();
               toast.error("Please login to like the participant !");
     
             }
+         }
         } catch (error) {
             console.error("Error:", error);
             toast.error("error",error);
