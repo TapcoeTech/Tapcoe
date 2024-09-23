@@ -1,12 +1,14 @@
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
-
+import { FaHome, FaSync, FaTrophy, FaUpload } from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
 export const LeaderBoard=()=>{
 
 
 const [participant,setParticipantData]=useState();
 const [loading,setLoading]=useState('');
 const[error,setError]=useState('');
+const navigate=useNavigate();
     useEffect(() => {
         // Fetch eventId from localStorage
         const eventId = localStorage.getItem('eventId');
@@ -92,6 +94,24 @@ const[error,setError]=useState('');
                         </div>
                     ))}
 
+                </div>
+                <div className="fixed bottom-0 left-0 w-full bg-gray-800 bg-opacity-50 text-white z-50 flex justify-around items-center py-3">
+                    <button className="p-2 flex flex-col items-center bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer" onClick={() => { navigate("/") }}>
+                        <FaHome className="text-xl" />
+                        <span className="inline">Home</span>
+                    </button>
+
+                    <button className="p-2 flex flex-col items-center bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer" onClick={() => { window.location.reload(); }}>
+                        <FaSync className="text-xl" />
+                        <span className="inline">Refresh</span>
+                    </button>
+
+                    {/* <button className="p-2 flex flex-col items-center bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer" onClick={() => { navigate("/leaderBoard") }}>
+                        <FaTrophy className="text-xl" />
+                        <span className="inline">Leaderboard</span>
+                    </button> */}
+
+                  
                 </div>
     </>)
 }
