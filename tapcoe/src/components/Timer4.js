@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import "./Timer4.css"
 import { useNavigate } from "react-router-dom"
 
-const Timer4 = ({ startTime, eventName, eventAddress, handlechange, eventId }) => {
+const Timer4 = ({eventImage, startTime, eventName, eventAddress, handlechange, eventId }) => {
 
   const [countDownTime, setCountDownTime] = useState({
     days: 0,
@@ -60,7 +60,7 @@ const Timer4 = ({ startTime, eventName, eventAddress, handlechange, eventId }) =
     <div className="  items-center justify-center sm:w-64 bg-white overflow-hidden shadow-lg  eventCard " style={{ width: "350px" }}>
       <div className="flex flex-col  items-center justify-center gap-2 ">
         <div className="" style={{ width: "100%", height: "100%" }}>
-          <img className="eventImage grow object-cover -z-10" src="images/eventimg.png" />
+          <img className="eventImage grow object-cover -z-10" src={eventImage} />
         </div>
         <div className="w-[100%]  flex items-center justify-center">
           <p className="text-black-500  py-1 rounded-md text-xl font-semibold">{eventName}</p>

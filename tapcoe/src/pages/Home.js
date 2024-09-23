@@ -182,6 +182,7 @@ console.log(events);
                 }}
               >
                 <Timer4
+                eventImage={value.eventImage}
                   startTime={value.startDate}
                   eventName={value?.eventName}
                   eventAddress={value?.eventAddress}
