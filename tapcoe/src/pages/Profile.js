@@ -63,7 +63,6 @@ const navigate = useNavigate();
    
         try {
 
-            console.log(!participant?.participant?.likes.includes(localStorage.getItem('_id')),"!participant?.participant?.likes.includes(localStorage.getItem('_id'))")
 
             if(!participant?.participant?.likes.includes(localStorage.getItem('_id'))){
             
@@ -85,6 +84,7 @@ const navigate = useNavigate();
                     // Handle success
                     console.log(result);
                     toast.success("You Liked this participant successfully!");
+                    window.location.reload();
                     
                 } else {
                     // Handle error
@@ -108,6 +108,7 @@ const navigate = useNavigate();
                 // Handle success
                 console.log(result);
                 toast.success("You UnLiked this participant successfully!");
+                window.location.reload();
                 
             } else {
                 // Handle error
