@@ -177,7 +177,7 @@ export function Eventdetails({ tab, name, address }) {
                         <span className="inline">Refresh</span>
                     </button>
 
-                    <button className="p-2 flex flex-col items-center bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer" onClick={() => { navigate("/leaderBoard") }}>
+                    <button className="p-2 flex flex-col items-center bg-gray-400 bg-opacity-50 rounded hover:bg-opacity-70 cursor-pointer" onClick={() => { window.location.reload();  }}>
                         <FaTrophy className="text-xl" />
                         <span className="inline">Leaderboard</span>
                     </button>

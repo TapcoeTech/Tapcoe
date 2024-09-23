@@ -142,10 +142,10 @@ console.log(events);
             <FaCalendarPlus className="text-lg" />
             <span className="ml-2">Host Event</span>
           </div>
-          <div className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-gray-600 cursor-pointer mb-2 sm:mb-0 sm:ml-5">
+          {/* <div className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-gray-600 cursor-pointer mb-2 sm:mb-0 sm:ml-5">
             <FaCalendarCheck className="text-lg" />
             <span className="ml-2">My Event</span>
-          </div>
+          </div> */}
           <div
             className="p-2 flex items-center space-x-2 bg-gray-400 bg-opacity-50 rounded hover:bg-gray-600 cursor-pointer mb-2 sm:mb-0 sm:ml-5"
             onClick={handleUploadClick}
