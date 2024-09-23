@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
 import { useLocation, useNavigate } from 'react-router-dom';
-import ShareButtons from "./ShareButtons";
+import ShareButtons from "../components/ShareButtons";
 export const Profile = () => {
     const [participant, setParticipant] = useState(null);
     const [openShare, setOpenShare] = useState(null); // Track open share for a specific participant
@@ -155,7 +155,7 @@ const navigate = useNavigate();
                         <div>Share</div>
                     </button>
                 </div>
-                {openShare === value?._id && shareUrl && (
+                {openShare === localStorage.getItem('paticipant_id') && shareUrl && (
                                     <div className="flex justify-center mt-4">
                                         <ShareButtons shareUrl={shareUrl} />
                                     </div>
