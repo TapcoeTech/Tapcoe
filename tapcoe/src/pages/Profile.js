@@ -130,7 +130,7 @@ const navigate = useNavigate();
         setShareUrl(shareUrl);  // Save the generated share URL to be used in ShareButtons
     };
     return (
-        <div class="flex flex-col md:flex-row justify-center items-center md:gap-8 gap-4 p-4 mt-10">
+        <div class="flex flex-col-reverse md:flex-row justify-center items-center md:gap-8 gap-4 p-4 mt-10">
 
 
         <div class="max-w-sm bg-white rounded-3xl shadow dark:bg-gray-800 min-w-[400px] sm:min-w-auto flex flex-col mb-4">
@@ -200,20 +200,23 @@ const navigate = useNavigate();
       
         <div class="flex flex-col md:flex-row gap-4 justify-center items-center md:pl-4 bg-white border border-gray-500 rounded-3xl shadow dark:bg-gray-800 dark:border-gray-700 mb-4">
             <div class="">
-                <img class="object-cover" src="images/iconImg.png" alt="Icon" />
+                <img class="object-cover" src={participant?.eventImage} alt="Icon" />
             </div>
             <div class="flex flex-col sm:flex-row items-center sm:items-start gap-2 sm:gap-4">
                 <div class="flex flex-col items-center gap-2 sm:gap-4">
                     <div class="text-4xl font-semibold font-montserrat text-green-800 whitespace-nowrap">
-                        The friends
+                      {participant?.eventName}
                     </div>
-                    <span class="font-normal font-montserrat text-green-800 text-base">
-                        Gurgaon, Sector 47
-                    </span>
+                    <span className="font-normal font-montserrat text-green-800 text-base">
+    {/* Render HTML content */}
+    <span dangerouslySetInnerHTML={{ __html: participant?.description }} />
+  
+</span>
+
                 </div>
             </div>
             <div class="px-6 py-4">
-                <Countdown startTime={"2024-10-10T02:30:00"} />
+                <Countdown startTime={participant?.endDate} />
             </div>
         </div>
     
