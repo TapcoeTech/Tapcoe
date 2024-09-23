@@ -65,7 +65,7 @@ const navigate = useNavigate();
 
             console.log(!participant?.participant?.likes.includes(localStorage.getItem('_id')),"!participant?.participant?.likes.includes(localStorage.getItem('_id'))")
 
-            if(participant?.participant?.likes.includes(localStorage.getItem('_id'))){
+            if(!participant?.participant?.likes.includes(localStorage.getItem('_id'))){
             
 
 
