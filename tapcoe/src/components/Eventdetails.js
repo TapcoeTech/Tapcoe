@@ -86,8 +86,8 @@ export function Eventdetails({ tab, name, address }) {
                     <div className="flex flex-col justify-center items-center mt-4">
                         <p className="font-semibold text-3xl">Event Details</p>
                         <div className="max-w-3xl text-center">
-                            <p className="font-basic text-lg">
-                                {event?.description}
+                            <p className="font-basic text-lg" dangerouslySetInnerHTML={{ __html: event?.description }}>
+                              
                             </p>
                         </div>
                     </div>
@@ -97,7 +97,7 @@ export function Eventdetails({ tab, name, address }) {
                             <div>
                                 <img
                                     className="w-auto h-auto object-cover"
-                                    src="images/iconImg.png"
+                                    src={event?.eventImage}
                                     alt=""
                                     style={{ maxWidth: "100%" }}
                                 />
@@ -105,7 +105,7 @@ export function Eventdetails({ tab, name, address }) {
                             <div className="px-6 pt-4 pb-2">
                                 <div>
                                     <p className="text-4xl font-semibold font-montserrat text-green-800">{event?.eventName}</p>
-                                    <span className="font-normal font-montserrat text-green-800 text-base">Gurgaon</span>
+                                    {/* <span className="font-normal font-montserrat text-green-800 text-base">Gurgaon</span> */}
                                 </div>
                             </div>
                             <div className="px-6 py-4">
