@@ -63,8 +63,15 @@ const navigate = useNavigate();
    
         try {
 
-            if(!participant?.participant?.likes.includes(localStorage.getItem('_id'))){
-                const unLikeresponse = await fetch('https://tapcoe-backend.onrender.com/api/v1/unLikeEvent', {
+            console.log(!participant?.participant?.likes.includes(localStorage.getItem('_id')),"!participant?.participant?.likes.includes(localStorage.getItem('_id'))")
+
+            if(participant?.participant?.likes.includes(localStorage.getItem('_id'))){
+            
+
+
+
+
+                const response = await fetch('https://tapcoe-backend.onrender.com/api/v1/likeEvent', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -72,12 +79,12 @@ const navigate = useNavigate();
                     },
                     body: JSON.stringify(formData),
                 });
-
-                if (unLikeresponse.ok) {
-                    const result = await unLikeresponse.json();
+    
+                if (response.ok) {
+                    const result = await response.json();
                     // Handle success
                     console.log(result);
-                    toast.success("You UnLiked this participant successfully!");
+                    toast.success("You Liked this participant successfully!");
                     
                 } else {
                     // Handle error
@@ -87,7 +94,7 @@ const navigate = useNavigate();
             }
 
          else{
-            const response = await fetch('https://tapcoe-backend.onrender.com/api/v1/likeEvent', {
+            const unLikeresponse = await fetch('https://tapcoe-backend.onrender.com/api/v1/unLikeEvent', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -96,11 +103,11 @@ const navigate = useNavigate();
                 body: JSON.stringify(formData),
             });
 
-            if (response.ok) {
-                const result = await response.json();
+            if (unLikeresponse.ok) {
+                const result = await unLikeresponse.json();
                 // Handle success
                 console.log(result);
-                toast.success("You Liked this participant successfully!");
+                toast.success("You UnLiked this participant successfully!");
                 
             } else {
                 // Handle error
